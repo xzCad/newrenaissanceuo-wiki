@@ -1,0 +1,35 @@
+title: "Ultima Online: New Renaissance Wiki"
+description: "Official wiki for Ultima Online: New Renaissance"
+url: "https://newrenaissanceuo.com"
+baseurl: ""
+
+# Theme
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Navigation
+header_pages:
+  - getting-started.md
+  - guides/index.md
+  - locations/index.md
+  - items/index.md
+  - server-info.md
+
+# Settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+
+# Collections for wiki organization
+collections:
+  guides:
+    output: true
+    permalink: /:collection/:name/
+  locations:
+    output: true
+    permalink: /:collection/:name/
+  items:
+    output: true
+    permalink: /:collection/:name/
