@@ -8,7 +8,7 @@ permalink: /getting-started/
 
 ## Download and Installation
 
-[Download UO Client](http://patch.newrenaissanceuo.com:2595/download){: .btn}
+[Download Ultima Online: New Renaissace](http://patch.newrenaissanceuo.com:2595/download){: .btn}
 
 1. Download and run the installer
 2. Follow the installation prompts
