@@ -36,7 +36,12 @@ The Agapite Elemental is a powerful ore elemental creature that can be found in 
 
 ## Loot
 - **Always Drops:** Agapite Ore (25 pieces)
-- **Loot Pack:** Average
+- **Gold:** 125-150 coins
+- **Instruments:** 10% chance of random instrument
+- **Magic Items:** 
+  - 10% chance of low-end magic item
+  - 2% chance of medium-level magic item  
+  - 0.5% chance of high-end magic item
 - **Gems:** 2 random gems
 
 ## Spawn Locations
