@@ -3,8 +3,6 @@ layout: home
 title: "Welcome to Ultima Online: New Renaissance"
 ---
 
-# Welcome to UO: New Renaissance Wiki
-
 Your comprehensive guide to the Ultima Online: New Renaissance.
 
 ## Quick Links
