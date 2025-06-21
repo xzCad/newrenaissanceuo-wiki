@@ -3,8 +3,6 @@ layout: home
 title: "Welcome to Ultima Online: New Renaissance"
 ---
 
-# Welcome to UO: New Renaissance Wiki
-
 Your comprehensive guide to the Ultima Online: New Renaissance.
 
 ## Quick Links
@@ -22,9 +20,9 @@ Your comprehensive guide to the Ultima Online: New Renaissance.
 - Recent patches and changes
 - Community events
 
-## Download the Game
+## Play Now
 
-[Download UO Client](http://patch.newrenaissanceuo.com:2595/download){: .btn .btn-primary}
+[Download New Renaissance](http://patch.newrenaissanceuo.com:2595/download){: .btn .btn-primary}
 
 ---
 

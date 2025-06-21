@@ -7,20 +7,16 @@ permalink: /server-info/
 # Server Information
 
 ## Server Details
-- **Era**: Renaissance
-- **Map**: Classic Britannia (Felucca only)
-- **Skill Cap**: 700.0 total points
+- **Era**: Custom Renaissance
+- **Map**: Classic Britannia
+- **Skill Cap**: 700 total points
 - **Stat Cap**: 225 total points
-- **PvP**: Enabled everywhere outside of guardzone
-- **Factions**: Classic UOR faction system
-
-## Server Rules
+- **Factions**: Classic Faction System
 
 ### General Rules
 1. No exploiting bugs or game mechanics
 
-### PvP Rules
-- All PvP combat is allowed in Felucca
+### PvP
 - No stat loss penalties for murderers
 - Faction warfare encouraged
 
@@ -29,18 +25,13 @@ permalink: /server-info/
 - House decay
 
 ## Staff Information
-
-### Administration
-- **Owner**: [Bones]
-- **Owner**: [Cad]
-- **Owner**: [Sean]
-- **Owner**: [Str8-N4sty]
-
-### Contact Information
-- **Discord**: [https://discord.gg/aynT7Cv82d]
+- **Owner**: Bones
+- **Owner**: Cad
+- **Owner**: Sean
+- **Owner**: Str8-N4sty
 
 ## Server Statistics
-- **Online Since**: January 2025
+- **Online Since**: June 2025
 - **Current Players**: <span id="current-players">Loading...</span>
 - **Peak Players**: <span id="peak-players">Loading...</span>
 - **Total Items**: <span id="total-items">Loading...</span>
@@ -83,14 +74,5 @@ setInterval(updateStats, 30000);
 - System improvements
 - New content additions
 
-## Technical Information
-- **Server Location**: [Location]
-- **Uptime**: 99.9%
-- **Backup Schedule**: Daily
-- **Save Frequency**: Every 30 minutes
-
 ## Community Links
-- **Discord**: [Link]
-- **Forums**: [Link]
-- **Reddit**: [Link]
-- **Facebook**: [Link]
+- **Discord**: [\[Link\]](https://discord.gg/aynT7Cv82d)

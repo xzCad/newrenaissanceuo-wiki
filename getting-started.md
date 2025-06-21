@@ -4,11 +4,9 @@ title: "Getting Started"
 permalink: /getting-started/
 ---
 
-# Getting Started with Ultima Online: New Renaissance
-
 ## Download and Installation
 
-[Download UO Client](http://patch.newrenaissanceuo.com:2595/download){: .btn}
+[Download Ultima Online: New Renaissace](http://patch.newrenaissanceuo.com:2595/download){: .btn}
 
 1. Download and run the installer
 2. Follow the installation prompts
@@ -16,8 +14,8 @@ permalink: /getting-started/
 
 ## Creating Your Character
 
-### Stats and Skills (Classic UOR Rules)
-- **Total Skills**: 700.0 skill points maximum
+### Stats and Skills
+- **Total Skills**: 700 skill points maximum
 - **Stat Cap**: 225 total stat points
 - Choose your starting template carefully
 - Skills can be adjusted and trained after character creation
@@ -30,15 +28,13 @@ permalink: /getting-started/
 
 ## Server Features
 
-- Renaissance Era hybrid gameplay
-- Felucca-only world (PvP enabled everywhere)
-- Classic UOR faction system
+- Custom Renaissance Era
+- Felucca Facet
+- Classic Faction System
 - Player vs Player and Player vs Monster combat
-- Classic Britannia map and dungeons
-- Classic skill and stat system
+- Classic Britannia Map and Dungeons
 
 ## Need Help?
 
-- Join our Discord: [Link]
-- Forums: [Link]
+- Join our Discord: (https://discord.gg/aynT7Cv82d)
 - In-game help channel: Type `[help`
