@@ -12,6 +12,7 @@ Your comprehensive guide to the Ultima Online: New Renaissance.
 - [Getting Started](getting-started.html) - New player guide and downloads
 - [Game Guides](guides/) - Skills, combat, and gameplay
 - [Locations](locations/) - Towns, dungeons, and points of interest
+- [Monsters](monsters/) - Creatures, elementals, and beasts
 - [Items & Equipment](items/) - Weapons, and armor
 - [Server Information](server-info.html) - Rules, staff, and updates
 
