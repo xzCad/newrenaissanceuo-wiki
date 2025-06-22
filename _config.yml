@@ -1,4 +1,4 @@
-title: "UO: New Renaissance Wiki"
+title: "Ultima Online: New Renaissance"
 description: "The complete guide to Ultima Online: New Renaissance - Player guides, quests, skills, and community resources"
 baseurl: "/uo-renaissance-wiki"
 url: "https://newrenaissanceuo.com"
@@ -12,11 +12,7 @@ plugins:
   - jekyll-seo-tag
 
 # SEO and meta
-author: "UO: New Renaissance Community"
-twitter:
-  username: # Add if you have Twitter
-facebook:
-  publisher: # Add if you have Facebook
+author: "Ultima Online: New Renaissance Community"
 
 # Navigation structure
 header_pages:
@@ -31,11 +27,8 @@ header_pages:
   - community.md
 
 # Custom variables for the wiki
-game_name: "UO: New Renaissance"
-server_ip: "newrenaissanceuo.com"
-server_port: "2593"
-discord_invite: "https://discord.gg/your-discord"  # Update with your Discord
-forum_url: "https://www.uorforum.com"
+game_name: "Ultima Online: New Renaissance"
+discord_invite: "https://discord.gg/aynT7Cv82d"
 
 # Wiki-specific settings
 show_excerpts: true
@@ -44,12 +37,6 @@ date_format: "%B %d, %Y"
 # Custom styling
 minima:
   skin: dark
-
-# Custom CSS
-custom_css: "/assets/css/custom.css"
-  social_links:
-    - { platform: discord, user_url: "https://discord.gg/your-discord" }
-    - { platform: github, user_url: "https://github.com/xzCad/uo-renaissance-wiki" }
 
 # Collections for organized content
 collections:
