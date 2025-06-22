@@ -5,7 +5,6 @@ The Agapite Elemental is a powerful ore elemental creature that can be found in 
 
 ## Statistics
 - **Name:** Agapite Elemental
-- **Body Type:** 107 (Elemental)
 - **Hit Points:** 136-153
 - **Fame:** 3,500
 - **Karma:** -3,500
@@ -16,13 +15,6 @@ The Agapite Elemental is a powerful ore elemental creature that can be found in 
 - **Dexterity:** 126-145
 - **Intelligence:** 71-92
 - **Damage:** 28 physical
-
-## Resistances
-- **Physical:** 30-40%
-- **Fire:** 40-50%
-- **Cold:** 40-50%
-- **Poison:** 30-40%
-- **Energy:** 10-20%
 
 ## Skills
 - **Magic Resist:** 50.1-95.0
@@ -36,7 +28,12 @@ The Agapite Elemental is a powerful ore elemental creature that can be found in 
 
 ## Loot
 - **Always Drops:** Agapite Ore (25 pieces)
-- **Loot Pack:** Average
+- **Gold:** 125-150 coins
+- **Instruments:** 10% chance of random instrument
+- **Magic Items:** 
+  - 10% chance of low-end magic item
+  - 2% chance of medium-level magic item  
+  - 0.5% chance of high-end magic item
 - **Gems:** 2 random gems
 
 ## Spawn Locations
