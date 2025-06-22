@@ -1,35 +1,92 @@
-title: "Ultima Online: New Renaissance Wiki"
-description: "Official wiki for Ultima Online: New Renaissance"
+title: "UO: New Renaissance Wiki"
+description: "The complete guide to Ultima Online: New Renaissance - Player guides, quests, skills, and community resources"
+baseurl: "/uo-renaissance-wiki"
 url: "https://newrenaissanceuo.com"
-baseurl: ""
 
-# Theme
+# Build settings
+markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
-# Navigation
+# SEO and meta
+author: "UO: New Renaissance Community"
+twitter:
+  username: # Add if you have Twitter
+facebook:
+  publisher: # Add if you have Facebook
+
+# Navigation structure
 header_pages:
   - getting-started.md
-  - guides/index.md
-  - locations/index.md
-  - items/index.md
+  - game-guides.md
+  - quests.md
+  - skills.md
+  - pvp-guide.md
+  - housing.md
+  - events.md
   - server-info.md
+  - community.md
 
-# Settings
-markdown: kramdown
-highlighter: rouge
-permalink: /:categories/:title/
+# Custom variables for the wiki
+game_name: "UO: New Renaissance"
+server_ip: "newrenaissanceuo.com"
+server_port: "2593"
+discord_invite: "https://discord.gg/your-discord"  # Update with your Discord
+forum_url: "https://www.uorforum.com"
 
-# Collections for wiki organization
+# Wiki-specific settings
+show_excerpts: true
+date_format: "%B %d, %Y"
+
+# Custom styling
+minima:
+  skin: dark
+
+# Custom CSS
+custom_css: "/assets/css/custom.css"
+  social_links:
+    - { platform: discord, user_url: "https://discord.gg/your-discord" }
+    - { platform: github, user_url: "https://github.com/xzCad/uo-renaissance-wiki" }
+
+# Collections for organized content
 collections:
   guides:
     output: true
     permalink: /:collection/:name/
-  locations:
+  quests:
     output: true
     permalink: /:collection/:name/
-  items:
+  skills:
     output: true
     permalink: /:collection/:name/
+
+# Default layouts for collections
+defaults:
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"
+  - scope:
+      path: ""
+      type: "quests"
+    values:
+      layout: "quest"
+  - scope:
+      path: ""
+      type: "skills"
+    values:
+      layout: "skill"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
