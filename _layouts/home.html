@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }} - {{ site.description }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #CD853F;
+            --accent-color: #DAA520;
+            --dark-bg: #1a1a1a;
+            --surface-color: #2d2d2d;
+            --border-color: #404040;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --success-color: #4CAF50;
+            --warning-color: #ff9800;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+            .nav-links a {
+                color: var(--text-secondary);
+                text-decoration: none;
+                transition: color 0.3s ease;
+                padding: 0.5rem 1rem;
+                border-radius: 4px;
+            }
+
+                .nav-links a:hover {
+                    color: var(--accent-color);
+                    background: rgba(139, 69, 19, 0.1);
+                }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><path fill="%23888" d="M0,400 L300,350 L600,380 L900,320 L1200,340 L1200,600 L0,600 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .server-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(45, 45, 45, 0.9);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--success-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-discord {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: #5865F2;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none !important;
+            outline: none !important;
+            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .btn-discord:hover {
+                background: #4752C4;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+            }
+
+            .btn-discord i {
+                margin-right: 0.8rem;
+                font-size: 1.3rem;
+            }
+
+            .btn-discord:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+                transition: left 0.5s;
+            }
+
+            .btn-discord:hover:before {
+                left: 100%;
+            }
+
+        /* Features Section */
+        .features-section {
+            padding: 4rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--surface-color);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-5px);
+                border-color: var(--primary-color);
+                box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+            }
+
+            .feature-card h3 {
+                color: var(--accent-color);
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+
+        /* Wiki Section */
+        .wiki-section {
+            padding: 4rem 0;
+            background: var(--dark-bg);
+        }
+
+        .wiki-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .wiki-card {
+            background: var(--surface-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+            .wiki-card:hover {
+                border-color: var(--primary-color);
+                transform: translateY(-2px);
+            }
+
+            .wiki-card strong {
+                color: var(--accent-color);
+            }
+
+        /* Download Section */
+        .btn-download {
+            display: inline-block;
+            padding: 2rem 3rem;
+            background: linear-gradient(135deg, #8B4513 0%, #CD853F 50%, #8B4513 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            border: 3px solid #DAA520;
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+            .btn-download:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: left 0.5s;
+            }
+
+            .btn-download:hover:before {
+                left: 100%;
+            }
+
+            .btn-download:hover {
+                background: linear-gradient(135deg, #CD853F 0%, #DAA520 50%, #CD853F 100%);
+                border-color: #FFD700;
+                transform: translateY(-3px);
+                box-shadow: 0 12px 30px rgba(139, 69, 19, 0.6);
+            }
+
+            .btn-download i {
+                margin-right: 0.8rem;
+                font-size: 1.5rem;
+            }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            padding: 3rem 0 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+            .footer-section a:hover {
+                color: var(--accent-color);
+            }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 4rem 0;
+        }
+
+            .section h2 {
+                text-align: center;
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+                color: var(--accent-color);
+            }
+
+            .section p {
+                text-align: center;
+                max-width: 600px;
+                margin: 0 auto 2rem;
+                color: var(--text-secondary);
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">UO: New Renaissance</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#wiki">Wiki</a></li>
+                <li><a href="#guides">Guides</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#download">Download</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to New Renaissance</h1>
+                <p>A core Renaissance era shard enhanced with select features from other expansions. Experience classic Felucca-only gameplay with traditional factions, 700 skill cap, and authentic UO mechanics in a dedicated community of players.</p>
+
+                <div class="server-status">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.2rem;">
+                        <span style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span class="status-dot"></span>
+                            Server Online
+                        </span>
+                        <span><span id="player-count">0</span> Players Online</span>
+                        <span>Peak Today: <span id="peak-today">0</span></span>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="{{ site.discord_invite }}" class="btn-discord" target="_blank">
+                        Join Discord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2>What Makes Our Realm Special?</h2>
+            <p>Discover the privileges and adventures that await you in the lands of New Renaissance.</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Era-Accurate Gameplay</h3>
+                    <p>Experience Ultima Online exactly as it was during the Renaissance era, with authentic mechanics and balance that made the game legendary.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Active Community</h3>
+                    <p>Join hundreds of active players in a thriving community with daily events, guild wars, and memorable adventures waiting around every corner.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Balanced PvP</h3>
+                    <p>Engage in carefully balanced player vs player combat with multiple viable templates, faction warfare, and skill-based competition.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>700 Skill Cap</h3>
+                    <p>Build your perfect character with 700 total skill points and 225 stat points, allowing for diverse and specialized character builds.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Custom Content</h3>
+                    <p>Discover unique quests, events, and features designed specifically for our shard while maintaining the classic UO experience.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Classic Factions</h3>
+                    <p>Join the eternal struggle between Order and Chaos, True Britannians, Council of Mages, Minax, and the Shadowlords in epic faction warfare.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="wiki" class="wiki-section">
+        <div class="container">
+            <h2>Knowledge Base</h2>
+            <p>Everything you need to master your journey through the realm of New Renaissance.</p>
+
+            <div class="wiki-grid">
+                <a href="/getting-started" class="wiki-card">
+                    <strong>Getting Started</strong><br>
+                    <small>Begin your journey in our realm</small>
+                </a>
+
+                <a href="/skills" class="wiki-card">
+                    <strong>Skills & Arts</strong><br>
+                    <small>Master all crafts and combat disciplines</small>
+                </a>
+
+                <a href="/pvp-guide" class="wiki-card">
+                    <strong>Combat Guide</strong><br>
+                    <small>Warfare tactics and strategies</small>
+                </a>
+
+                <a href="/quests" class="wiki-card">
+                    <strong>Quests & Adventures</strong><br>
+                    <small>Epic tales and valuable rewards</small>
+                </a>
+
+                <a href="/housing" class="wiki-card">
+                    <strong>Housing & Estates</strong><br>
+                    <small>Build your castle and stronghold</small>
+                </a>
+
+                <a href="/monsters" class="wiki-card">
+                    <strong>Bestiary</strong><br>
+                    <small>Creatures, monsters, and their treasures</small>
+                </a>
+
+                <a href="/items" class="wiki-card">
+                    <strong>Items & Equipment</strong><br>
+                    <small>Weapons, armor, and magical artifacts</small>
+                </a>
+
+                <a href="/events" class="wiki-card">
+                    <strong>Server Events</strong><br>
+                    <small>Celebrations and tournaments</small>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="section">
+        <div class="container" style="text-align: center;">
+            <h2>Ready to Begin?</h2>
+            <p>Join fellow adventurers in the ultimate Britannia experience. Download now and start your epic journey through New Renaissance!</p>
+
+            <div style="margin: 2rem 0;">
+                <a href="{{ site.download_url | default: 'http://patch.newrenaissanceuo.com:2595/download' }}" class="btn-download">
+                    DOWNLOAD NOW
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Game Resources</h3>
+                    <a href="/getting-started">Getting Started</a>
+                    <a href="/skills">Skills Guide</a>
+                    <a href="/pvp-guide">PvP Guide</a>
+                    <a href="/housing">Housing</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <a href="{{ site.discord_invite }}" target="_blank">Discord Server</a>
+                    <a href="/community">Community Hub</a>
+                    <a href="/events">Server Events</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Information</h3>
+                    <a href="/server-info">Server Info</a>
+                    <a href="/rules">Rules & Policies</a>
+                    <a href="/staff">Staff Team</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Server Details</h3>
+                    <p><strong>Era:</strong> Custom Renaissance</p>
+                    <p><strong>Skill Cap:</strong> 700 points</p>
+                    <p><strong>Stat Cap:</strong> 225 points</p>
+                    <p><strong>Map:</strong> Felucca</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ultima Online: New Renaissance. Not affiliated with Electronic Arts or Origin Systems.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Live server stats
+        function updateStats() {
+            // Fetch from your actual status.json
+            fetch('/status.json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('player-count').textContent = data.online_players;
+                    document.getElementById('peak-today').textContent = data.peak_players;
+                })
+                .catch(error => {
+                    // Fallback to default values if fetch fails
+                    document.getElementById('player-count').textContent = '0';
+                    document.getElementById('peak-today').textContent = '0';
+                    console.log('Stats fetch error:', error);
+                });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Update stats on load and periodically
+        updateStats();
+        setInterval(updateStats, 30000);
+
+        // Add some animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .wiki-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

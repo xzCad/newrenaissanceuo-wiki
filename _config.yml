@@ -1,5 +1,5 @@
 title: "Ultima Online: New Renaissance"
-description: "The complete guide to Ultima Online: New Renaissance - Player guides, quests, skills, and community resources"
+description: "A core Renaissance era shard enhanced with select features from other expansions"
 baseurl: "/uo-renaissance-wiki"
 url: "https://newrenaissanceuo.com"
 
@@ -29,6 +29,7 @@ header_pages:
 # Custom variables for the wiki
 game_name: "Ultima Online: New Renaissance"
 discord_invite: "https://discord.gg/aynT7Cv82d"
+download_url: "http://patch.newrenaissanceuo.com:2595/download"
 
 # Wiki-specific settings
 show_excerpts: true
