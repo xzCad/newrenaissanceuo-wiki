@@ -70,23 +70,22 @@
             gap: 2rem;
         }
 
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-        }
+            .nav-links a {
+                color: var(--text-secondary);
+                text-decoration: none;
+                transition: color 0.3s ease;
+                padding: 0.5rem 1rem;
+                border-radius: 4px;
+            }
 
-        .nav-links a:hover {
-            color: var(--accent-color);
-            background: rgba(139, 69, 19, 0.1);
-        }
+                .nav-links a:hover {
+                    color: var(--accent-color);
+                    background: rgba(139, 69, 19, 0.1);
+                }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><path fill="%23888" d="M0,400 L300,350 L600,380 L900,320 L1200,340 L1200,600 L0,600 Z"/></svg>');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><path fill="%23888" d="M0,400 L300,350 L600,380 L900,320 L1200,340 L1200,600 L0,600 Z"/></svg>');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -131,9 +130,17 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         .cta-buttons {
@@ -160,31 +167,31 @@
             overflow: hidden;
         }
 
-        .btn-discord:hover {
-            background: #4752C4;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
-        }
+            .btn-discord:hover {
+                background: #4752C4;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+            }
 
-        .btn-discord i {
-            margin-right: 0.8rem;
-            font-size: 1.3rem;
-        }
+            .btn-discord i {
+                margin-right: 0.8rem;
+                font-size: 1.3rem;
+            }
 
-        .btn-discord:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s;
-        }
+            .btn-discord:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+                transition: left 0.5s;
+            }
 
-        .btn-discord:hover:before {
-            left: 100%;
-        }
+            .btn-discord:hover:before {
+                left: 100%;
+            }
 
         /* Features Section */
         .features-section {
@@ -206,17 +213,17 @@
             transition: all 0.3s ease;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
-        }
+            .feature-card:hover {
+                transform: translateY(-5px);
+                border-color: var(--primary-color);
+                box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+            }
 
-        .feature-card h3 {
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+            .feature-card h3 {
+                color: var(--accent-color);
+                margin-bottom: 1rem;
+                text-align: center;
+            }
 
         /* Wiki Section */
         .wiki-section {
@@ -242,14 +249,14 @@
             text-align: center;
         }
 
-        .wiki-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-2px);
-        }
+            .wiki-card:hover {
+                border-color: var(--primary-color);
+                transform: translateY(-2px);
+            }
 
-        .wiki-card strong {
-            color: var(--accent-color);
-        }
+            .wiki-card strong {
+                color: var(--accent-color);
+            }
 
         /* Download Section */
         .btn-download {
@@ -270,32 +277,32 @@
             letter-spacing: 1px;
         }
 
-        .btn-download:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
+            .btn-download:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: left 0.5s;
+            }
 
-        .btn-download:hover:before {
-            left: 100%;
-        }
+            .btn-download:hover:before {
+                left: 100%;
+            }
 
-        .btn-download:hover {
-            background: linear-gradient(135deg, #CD853F 0%, #DAA520 50%, #CD853F 100%);
-            border-color: #FFD700;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(139, 69, 19, 0.6);
-        }
+            .btn-download:hover {
+                background: linear-gradient(135deg, #CD853F 0%, #DAA520 50%, #CD853F 100%);
+                border-color: #FFD700;
+                transform: translateY(-3px);
+                box-shadow: 0 12px 30px rgba(139, 69, 19, 0.6);
+            }
 
-        .btn-download i {
-            margin-right: 0.8rem;
-            font-size: 1.5rem;
-        }
+            .btn-download i {
+                margin-right: 0.8rem;
+                font-size: 1.5rem;
+            }
 
         /* Footer */
         footer {
@@ -324,9 +331,9 @@
             transition: color 0.3s ease;
         }
 
-        .footer-section a:hover {
-            color: var(--accent-color);
-        }
+            .footer-section a:hover {
+                color: var(--accent-color);
+            }
 
         .footer-bottom {
             text-align: center;
@@ -356,19 +363,19 @@
             padding: 4rem 0;
         }
 
-        .section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
+            .section h2 {
+                text-align: center;
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+                color: var(--accent-color);
+            }
 
-        .section p {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            color: var(--text-secondary);
-        }
+            .section p {
+                text-align: center;
+                max-width: 600px;
+                margin: 0 auto 2rem;
+                color: var(--text-secondary);
+            }
     </style>
 </head>
 <body>
@@ -391,7 +398,7 @@
             <div class="hero-content">
                 <h1>Welcome to New Renaissance</h1>
                 <p>A core Renaissance era shard enhanced with select features from other expansions. Experience classic Felucca-only gameplay with traditional factions, 700 skill cap, and authentic UO mechanics in a dedicated community of players.</p>
-                
+
                 <div class="server-status">
                     <div style="display: flex; flex-direction: column; align-items: center; gap: 0.2rem;">
                         <span style="display: flex; align-items: center; gap: 0.5rem;">
@@ -416,33 +423,33 @@
         <div class="container">
             <h2>What Makes Our Realm Special?</h2>
             <p>Discover the privileges and adventures that await you in the lands of New Renaissance.</p>
-            
+
             <div class="features-grid">
                 <div class="feature-card">
                     <h3>Era-Accurate Gameplay</h3>
                     <p>Experience Ultima Online exactly as it was during the Renaissance era, with authentic mechanics and balance that made the game legendary.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <h3>Active Community</h3>
                     <p>Join hundreds of active players in a thriving community with daily events, guild wars, and memorable adventures waiting around every corner.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <h3>Balanced PvP</h3>
                     <p>Engage in carefully balanced player vs player combat with multiple viable templates, faction warfare, and skill-based competition.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <h3>700 Skill Cap</h3>
                     <p>Build your perfect character with 700 total skill points and 225 stat points, allowing for diverse and specialized character builds.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <h3>Custom Content</h3>
                     <p>Discover unique quests, events, and features designed specifically for our shard while maintaining the classic UO experience.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <h3>Classic Factions</h3>
                     <p>Join the eternal struggle between Order and Chaos, True Britannians, Council of Mages, Minax, and the Shadowlords in epic faction warfare.</p>
@@ -455,43 +462,43 @@
         <div class="container">
             <h2>Knowledge Base</h2>
             <p>Everything you need to master your journey through the realm of New Renaissance.</p>
-            
+
             <div class="wiki-grid">
                 <a href="/getting-started" class="wiki-card">
                     <strong>Getting Started</strong><br>
                     <small>Begin your journey in our realm</small>
                 </a>
-                
+
                 <a href="/skills" class="wiki-card">
                     <strong>Skills & Arts</strong><br>
                     <small>Master all crafts and combat disciplines</small>
                 </a>
-                
+
                 <a href="/pvp-guide" class="wiki-card">
                     <strong>Combat Guide</strong><br>
                     <small>Warfare tactics and strategies</small>
                 </a>
-                
+
                 <a href="/quests" class="wiki-card">
                     <strong>Quests & Adventures</strong><br>
                     <small>Epic tales and valuable rewards</small>
                 </a>
-                
+
                 <a href="/housing" class="wiki-card">
                     <strong>Housing & Estates</strong><br>
                     <small>Build your castle and stronghold</small>
                 </a>
-                
+
                 <a href="/monsters" class="wiki-card">
                     <strong>Bestiary</strong><br>
                     <small>Creatures, monsters, and their treasures</small>
                 </a>
-                
+
                 <a href="/items" class="wiki-card">
                     <strong>Items & Equipment</strong><br>
                     <small>Weapons, armor, and magical artifacts</small>
                 </a>
-                
+
                 <a href="/events" class="wiki-card">
                     <strong>Server Events</strong><br>
                     <small>Celebrations and tournaments</small>
@@ -504,7 +511,7 @@
         <div class="container" style="text-align: center;">
             <h2>Ready to Begin?</h2>
             <p>Join fellow adventurers in the ultimate Britannia experience. Download now and start your epic journey through New Renaissance!</p>
-            
+
             <div style="margin: 2rem 0;">
                 <a href="{{ site.download_url | default: 'http://patch.newrenaissanceuo.com:2595/download' }}" class="btn-download">
                     DOWNLOAD NOW
@@ -523,21 +530,21 @@
                     <a href="/pvp-guide">PvP Guide</a>
                     <a href="/housing">Housing</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Community</h3>
                     <a href="{{ site.discord_invite }}" target="_blank">Discord Server</a>
                     <a href="/community">Community Hub</a>
                     <a href="/events">Server Events</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Information</h3>
                     <a href="/server-info">Server Info</a>
                     <a href="/rules">Rules & Policies</a>
                     <a href="/staff">Staff Team</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Server Details</h3>
                     <p><strong>Era:</strong> Custom Renaissance</p>
@@ -546,7 +553,7 @@
                     <p><strong>Map:</strong> Felucca</p>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Ultima Online: New Renaissance. Not affiliated with Electronic Arts or Origin Systems.</p>
             </div>
@@ -555,7 +562,7 @@
 
     <!-- Background Audio -->
     <audio id="background-music" loop preload="auto">
-        <source src="{{ '/assets/audio/stones2.mp3' | relative_url }}" type="audio/mpeg">
+        <source src="/uo-renaissance-wiki/assets/audio/stones2.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -590,18 +597,26 @@
 
         // Audio toggle function
         function toggleAudio() {
+            console.log('Audio toggle clicked. Current state:', isPlaying);
+            console.log('Audio element:', audio);
+            console.log('Audio src:', audio.src);
+
             if (isPlaying) {
                 audio.pause();
                 audioToggle.innerHTML = '🔇';
                 audioToggle.style.background = '#666';
                 isPlaying = false;
+                console.log('Audio paused');
             } else {
-                audio.play().catch(e => {
+                audio.play().then(() => {
+                    console.log('Audio started successfully');
+                }).catch(e => {
                     console.log('Audio play failed:', e);
                 });
                 audioToggle.innerHTML = '♪';
                 audioToggle.style.background = 'var(--primary-color)';
                 isPlaying = true;
+                console.log('Attempting to play audio');
             }
         }
 
