@@ -30,15 +30,6 @@ permalink: /server-info/
 - **Owner**: Sean
 - **Owner**: Str8-N4sty
 
-## Server Statistics
-- **Online Since**: June 2025
-- **Current Players**: <span id="current-players">Loading...</span>
-- **Peak Players**: <span id="peak-players">Loading...</span>
-- **Total Items**: <span id="total-items">Loading...</span>
-- **Total Mobiles**: <span id="total-mobiles">Loading...</span>
-- **Server Uptime**: <span id="server-uptime">Loading...</span>
-- **Last Updated**: <span id="last-updated">Loading...</span>
-
 <script>
 function updateStats() {
     fetch('/status.json')
