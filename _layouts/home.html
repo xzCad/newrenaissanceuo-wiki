@@ -70,23 +70,22 @@
             gap: 2rem;
         }
 
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-        }
+            .nav-links a {
+                color: var(--text-secondary);
+                text-decoration: none;
+                transition: color 0.3s ease;
+                padding: 0.5rem 1rem;
+                border-radius: 4px;
+            }
 
-        .nav-links a:hover {
-            color: var(--accent-color);
-            background: rgba(139, 69, 19, 0.1);
-        }
+                .nav-links a:hover {
+                    color: var(--accent-color);
+                    background: rgba(139, 69, 19, 0.1);
+                }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><path fill="%23888" d="M0,400 L300,350 L600,380 L900,320 L1200,340 L1200,600 L0,600 Z"/></svg>');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><path fill="%23888" d="M0,400 L300,350 L600,380 L900,320 L1200,340 L1200,600 L0,600 Z"/></svg>');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -111,17 +110,148 @@
             margin-right: auto;
         }
 
-        .server-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+        /* Updated Server Status with Progress Bar */
+        .server-status-container {
             background: rgba(45, 45, 45, 0.9);
-            padding: 1rem 2rem;
             border-radius: 8px;
+            padding: 16px 20px;
+            border: 1px solid var(--border-color);
             margin-bottom: 2rem;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .server-status-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .status-circle {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+            .status-circle.online {
+                background: var(--success-color);
+                box-shadow: 0 0 6px rgba(76, 175, 80, 0.6);
+                animation: pulse-green 2s infinite;
+            }
+
+            .status-circle.offline {
+                background: #f44336;
+                box-shadow: 0 0 6px rgba(244, 67, 54, 0.6);
+            }
+
+        @keyframes pulse-green {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .status-text {
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .player-progress-container {
+            margin-top: 8px;
+        }
+
+        .player-progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--dark-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
             border: 1px solid var(--border-color);
         }
 
+        .player-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--success-color) 0%, #66BB6A 50%, var(--success-color) 100%);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 1.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .player-progress-fill::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+                animation: shine 2s infinite;
+            }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .player-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .current-players {
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .peak-players {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .new-peak-indicator {
+            display: none;
+            color: #FFD700;
+            font-size: 11px;
+            margin-top: 4px;
+            font-weight: bold;
+            text-align: center;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
+
+            51%, 100% {
+                opacity: 0.3;
+            }
+        }
+
+        /* Keep existing styles for backwards compatibility */
         .status-dot {
             width: 12px;
             height: 12px;
@@ -131,9 +261,17 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         .cta-buttons {
@@ -160,31 +298,31 @@
             overflow: hidden;
         }
 
-        .btn-discord:hover {
-            background: #4752C4;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
-        }
+            .btn-discord:hover {
+                background: #4752C4;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+            }
 
-        .btn-discord i {
-            margin-right: 0.8rem;
-            font-size: 1.3rem;
-        }
+            .btn-discord i {
+                margin-right: 0.8rem;
+                font-size: 1.3rem;
+            }
 
-        .btn-discord:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s;
-        }
+            .btn-discord:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+                transition: left 0.5s;
+            }
 
-        .btn-discord:hover:before {
-            left: 100%;
-        }
+            .btn-discord:hover:before {
+                left: 100%;
+            }
 
         /* Features Section */
         .features-section {
@@ -206,17 +344,17 @@
             transition: all 0.3s ease;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
-        }
+            .feature-card:hover {
+                transform: translateY(-5px);
+                border-color: var(--primary-color);
+                box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+            }
 
-        .feature-card h3 {
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+            .feature-card h3 {
+                color: var(--accent-color);
+                margin-bottom: 1rem;
+                text-align: center;
+            }
 
         /* Wiki Section */
         .wiki-section {
@@ -242,14 +380,14 @@
             text-align: center;
         }
 
-        .wiki-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-2px);
-        }
+            .wiki-card:hover {
+                border-color: var(--primary-color);
+                transform: translateY(-2px);
+            }
 
-        .wiki-card strong {
-            color: var(--accent-color);
-        }
+            .wiki-card strong {
+                color: var(--accent-color);
+            }
 
         /* Download Section */
         .btn-download {
@@ -270,32 +408,32 @@
             letter-spacing: 1px;
         }
 
-        .btn-download:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
+            .btn-download:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                transition: left 0.5s;
+            }
 
-        .btn-download:hover:before {
-            left: 100%;
-        }
+            .btn-download:hover:before {
+                left: 100%;
+            }
 
-        .btn-download:hover {
-            background: linear-gradient(135deg, #CD853F 0%, #DAA520 50%, #CD853F 100%);
-            border-color: #FFD700;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(139, 69, 19, 0.6);
-        }
+            .btn-download:hover {
+                background: linear-gradient(135deg, #CD853F 0%, #DAA520 50%, #CD853F 100%);
+                border-color: #FFD700;
+                transform: translateY(-3px);
+                box-shadow: 0 12px 30px rgba(139, 69, 19, 0.6);
+            }
 
-        .btn-download i {
-            margin-right: 0.8rem;
-            font-size: 1.5rem;
-        }
+            .btn-download i {
+                margin-right: 0.8rem;
+                font-size: 1.5rem;
+            }
 
         /* Footer */
         footer {
@@ -324,9 +462,9 @@
             transition: color 0.3s ease;
         }
 
-        .footer-section a:hover {
-            color: var(--accent-color);
-        }
+            .footer-section a:hover {
+                color: var(--accent-color);
+            }
 
         .footer-bottom {
             text-align: center;
@@ -356,19 +494,19 @@
             padding: 4rem 0;
         }
 
-        .section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
+            .section h2 {
+                text-align: center;
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+                color: var(--accent-color);
+            }
 
-        .section p {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            color: var(--text-secondary);
-        }
+            .section p {
+                text-align: center;
+                max-width: 600px;
+                margin: 0 auto 2rem;
+                color: var(--text-secondary);
+            }
     </style>
 </head>
 <body>
@@ -391,15 +529,23 @@
             <div class="hero-content">
                 <h1>Welcome to New Renaissance</h1>
                 <p>A core Renaissance era shard enhanced with select features from other expansions. Experience classic Felucca-only gameplay with traditional factions, 700 skill cap, and authentic UO mechanics in a dedicated community of players.</p>
-                
-                <div class="server-status">
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 0.2rem;">
-                        <span style="display: flex; align-items: center; gap: 0.5rem;">
-                            <span class="status-dot"></span>
-                            Server Online
-                        </span>
-                        <span><span id="player-count">0</span> Players Online</span>
-                        <span>Peak Today: <span id="peak-today">0</span></span>
+
+                <!-- NEW: Enhanced Server Status with Progress Bar -->
+                <div class="server-status-container">
+                    <div class="server-status-header">
+                        <div id="status-circle" class="status-circle offline"></div>
+                        <span id="status-text" class="status-text">Server Offline</span>
+                    </div>
+
+                    <div class="player-progress-container">
+                        <div class="player-progress-bar">
+                            <div id="player-progress-fill" class="player-progress-fill"></div>
+                        </div>
+                        <div class="player-stats">
+                            <span>Online: <span id="current-count" class="current-players">0</span></span>
+                            <span>Peak: <span id="peak-count" class="peak-players">0</span></span>
+                        </div>
+                        <div id="new-peak" class="new-peak-indicator">🏆 NEW PEAK!</div>
                     </div>
                 </div>
 
@@ -416,33 +562,33 @@
         <div class="container">
             <h2>What Makes Our Realm Special?</h2>
             <p>Discover the privileges and adventures that await you in the lands of New Renaissance.</p>
-            
+
             <div class="features-grid">
                 <div class="feature-card">
                     <h3>Era-Accurate Gameplay</h3>
                     <p>Experience Ultima Online exactly as it was during the Renaissance era, with authentic mechanics and balance that made the game legendary.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <h3>Active Community</h3>
                     <p>Join hundreds of active players in a thriving community with daily events, guild wars, and memorable adventures waiting around every corner.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <h3>Balanced PvP</h3>
                     <p>Engage in carefully balanced player vs player combat with multiple viable templates, faction warfare, and skill-based competition.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <h3>700 Skill Cap</h3>
                     <p>Build your perfect character with 700 total skill points and 225 stat points, allowing for diverse and specialized character builds.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <h3>Custom Content</h3>
                     <p>Discover unique quests, events, and features designed specifically for our shard while maintaining the classic UO experience.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <h3>Classic Factions</h3>
                     <p>Join the eternal struggle between Order and Chaos, True Britannians, Council of Mages, Minax, and the Shadowlords in epic faction warfare.</p>
@@ -455,43 +601,43 @@
         <div class="container">
             <h2>Knowledge Base</h2>
             <p>Everything you need to master your journey through the realm of New Renaissance.</p>
-            
+
             <div class="wiki-grid">
                 <a href="/getting-started" class="wiki-card">
                     <strong>Getting Started</strong><br>
                     <small>Begin your journey in our realm</small>
                 </a>
-                
+
                 <a href="/skills" class="wiki-card">
                     <strong>Skills & Arts</strong><br>
                     <small>Master all crafts and combat disciplines</small>
                 </a>
-                
+
                 <a href="/pvp-guide" class="wiki-card">
                     <strong>Combat Guide</strong><br>
                     <small>Warfare tactics and strategies</small>
                 </a>
-                
+
                 <a href="/quests" class="wiki-card">
                     <strong>Quests & Adventures</strong><br>
                     <small>Epic tales and valuable rewards</small>
                 </a>
-                
+
                 <a href="/housing" class="wiki-card">
                     <strong>Housing & Estates</strong><br>
                     <small>Build your castle and stronghold</small>
                 </a>
-                
+
                 <a href="/monsters" class="wiki-card">
                     <strong>Bestiary</strong><br>
                     <small>Creatures, monsters, and their treasures</small>
                 </a>
-                
+
                 <a href="/items" class="wiki-card">
                     <strong>Items & Equipment</strong><br>
                     <small>Weapons, armor, and magical artifacts</small>
                 </a>
-                
+
                 <a href="/events" class="wiki-card">
                     <strong>Server Events</strong><br>
                     <small>Celebrations and tournaments</small>
@@ -504,7 +650,7 @@
         <div class="container" style="text-align: center;">
             <h2>Ready to Begin?</h2>
             <p>Join fellow adventurers in the ultimate Britannia experience. Download now and start your epic journey through New Renaissance!</p>
-            
+
             <div style="margin: 2rem 0;">
                 <a href="{{ site.download_url | default: 'http://patch.newrenaissanceuo.com:2595/download' }}" class="btn-download">
                     DOWNLOAD NOW
@@ -523,21 +669,21 @@
                     <a href="/pvp-guide">PvP Guide</a>
                     <a href="/housing">Housing</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Community</h3>
                     <a href="{{ site.discord_invite }}" target="_blank">Discord Server</a>
                     <a href="/community">Community Hub</a>
                     <a href="/events">Server Events</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Information</h3>
                     <a href="/server-info">Server Info</a>
                     <a href="/rules">Rules & Policies</a>
                     <a href="/staff">Staff Team</a>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Server Details</h3>
                     <p><strong>Era:</strong> Custom Renaissance</p>
@@ -546,7 +692,7 @@
                     <p><strong>Map:</strong> Felucca</p>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 Ultima Online: New Renaissance. Not affiliated with Electronic Arts or Origin Systems.</p>
             </div>
@@ -585,7 +731,7 @@
         // Set audio source with JavaScript
         const audio = document.getElementById('background-music');
         audio.src = '/uo-renaissance-wiki/assets/audio/stones2.mp3';
-        
+
         // Audio control functionality
         const audioToggle = document.getElementById('audio-toggle');
         let isPlaying = false;
@@ -595,7 +741,7 @@
             console.log('Audio toggle clicked. Current state:', isPlaying);
             console.log('Audio element:', audio);
             console.log('Audio src:', audio.src);
-            
+
             if (isPlaying) {
                 audio.pause();
                 audioToggle.innerHTML = '🔇';
@@ -631,20 +777,77 @@
             document.removeEventListener('click', startAudioOnFirstClick);
         }, { once: true });
 
-        // Live server stats
+        // NEW: Enhanced server stats with progress bar
+        let lastPeak = 0;
+
         function updateStats() {
-            // Fetch from your actual status.json
             fetch('/status.json')
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById('player-count').textContent = data.online_players;
-                    document.getElementById('peak-today').textContent = data.peak_players;
+                    const circle = document.getElementById('status-circle');
+                    const text = document.getElementById('status-text');
+                    const progressFill = document.getElementById('player-progress-fill');
+                    const currentCount = document.getElementById('current-count');
+                    const peakCount = document.getElementById('peak-count');
+                    const newPeakIndicator = document.getElementById('new-peak');
+
+                    if (data.online_players !== undefined && data.online_players >= 0) {
+                        const current = data.online_players;
+                        const peak = data.peak_players;
+
+                        // Update status indicator
+                        circle.className = 'status-circle online';
+                        text.textContent = `Players: ${current} Online`;
+
+                        // Update numbers
+                        currentCount.textContent = current;
+                        peakCount.textContent = peak;
+
+                        // Calculate progress percentage
+                        let progressPercent = 0;
+                        if (peak > 0) {
+                            progressPercent = Math.min((current / peak) * 100, 100);
+                        } else if (current > 0) {
+                            progressPercent = 100; // If no peak set, show full for any players
+                        }
+
+                        // Animate progress bar
+                        setTimeout(() => {
+                            progressFill.style.width = progressPercent + '%';
+                        }, 100);
+
+                        // Check for new peak
+                        if (peak > lastPeak && lastPeak > 0) {
+                            newPeakIndicator.style.display = 'block';
+                            setTimeout(() => {
+                                newPeakIndicator.style.display = 'none';
+                            }, 5000);
+                        }
+                        lastPeak = peak;
+
+                        // Special effect when hitting exactly peak
+                        if (current === peak && current > 0) {
+                            progressFill.style.background = 'linear-gradient(90deg, #FFD700 0%, #FFA500 50%, #FFD700 100%)';
+                        } else {
+                            progressFill.style.background = 'linear-gradient(90deg, #4CAF50 0%, #66BB6A 50%, #4CAF50 100%)';
+                        }
+
+                    } else {
+                        // Server offline
+                        circle.className = 'status-circle offline';
+                        text.textContent = 'Server Offline';
+                        currentCount.textContent = '0';
+                        peakCount.textContent = '0';
+                        progressFill.style.width = '0%';
+                        newPeakIndicator.style.display = 'none';
+                    }
                 })
                 .catch(error => {
-                    // Fallback to default values if fetch fails
-                    document.getElementById('player-count').textContent = '0';
-                    document.getElementById('peak-today').textContent = '0';
-                    console.log('Stats fetch error:', error);
+                    // Error state
+                    document.getElementById('status-circle').className = 'status-circle offline';
+                    document.getElementById('status-text').textContent = 'Connection Error';
+                    document.getElementById('player-progress-fill').style.width = '0%';
+                    console.log('Status fetch error:', error);
                 });
         }
 
