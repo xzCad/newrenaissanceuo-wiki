@@ -271,12 +271,13 @@
                 url('/assets/images/gumps/border-left.png') 16 repeat;  /* left edge */
         }
 
-        /* Content Area - Using proper gump background */
+        /* Content Area with UO Gump Borders */
         .content-area {
-            background: #1a1a1a; /* Dark area from your gump pieces, not the scroll */
-            border-radius: 8px;
-            border: 3px solid var(--accent-color);
-            overflow: hidden;
+            background: #1a1a1a;
+            border-radius: 0;
+            border: 16px solid transparent;
+            border-image: url('/assets/images/gumps/border-combined.png') 16 repeat;
+            overflow: visible;
             box-shadow: 
                 0 8px 24px rgba(0,0,0,0.8),
                 inset 0 0 20px rgba(139,69,19,0.2);
@@ -296,15 +297,14 @@
             margin-bottom: 1.5rem;
         }
 
-        /* News Items - Temporary fix */
+        /* News Items with UO Gump Borders */
         .news-item {
-            background: 
-                linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(13, 13, 13, 0.98));
-            border-radius: 8px;
+            background: #1a1a1a;
+            border-radius: 0;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border: 2px solid var(--accent-color);
-            border-left: 4px solid var(--accent-color);
+            border: 10px solid transparent;
+            border-image: url('/assets/images/gumps/news-border.png') 10 repeat;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -332,16 +332,23 @@
             margin: -12px -12px 12px -12px; /* Negative margins to extend to border edge */
         }
 
-        /* Banner Section */
+        /* Banner Section with Britannia Background */
         .banner-section {
             background: 
-                linear-gradient(135deg, var(--primary-color), var(--secondary-color)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="60"><defs><pattern id="runes" patternUnits="userSpaceOnUse" width="120" height="60"><rect width="120" height="60" fill="none"/><text x="20" y="25" fill="rgba(184,134,11,0.2)" font-family="serif" font-size="16">⚔</text><text x="60" y="40" fill="rgba(184,134,11,0.15)" font-family="serif" font-size="14">🛡</text><text x="100" y="20" fill="rgba(184,134,11,0.2)" font-family="serif" font-size="12">💎</text></pattern></defs><rect width="120" height="60" fill="url(%23runes)"/></svg>');
+                linear-gradient(rgba(107, 44, 21, 0.65), rgba(139, 69, 19, 0.75)),
+                url('/assets/images/britannia2012.jpg') center center,
+                linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-size: auto, cover, auto;
+            background-position: center, center, center;
             padding: 3rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
             border-bottom: 2px solid var(--accent-color);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .banner-section::before {
@@ -353,13 +360,17 @@
             bottom: 0;
             background: 
                 radial-gradient(circle at 20% 80%, rgba(184,134,11,0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139,69,19,0.1) 0%, transparent 50%),
-                linear-gradient(45deg, transparent 30%, rgba(184,134,11,0.05) 50%, transparent 70%);
+                radial-gradient(circle at 80% 20%, rgba(139,69,19,0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
         .banner-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+            background: rgba(0,0,0,0.3);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(2px);
         }
 
         .banner-title {
@@ -367,10 +378,12 @@
             margin-bottom: 1.5rem;
             text-shadow: 
                 3px 3px 6px rgba(0,0,0,0.9),
-                0 0 20px rgba(184,134,11,0.3);
+                0 0 20px rgba(184,134,11,0.5),
+                2px 2px 4px rgba(0,0,0,1);
             font-family: 'Times New Roman', serif;
             font-weight: bold;
             letter-spacing: 2px;
+            color: #ffffff;
         }
 
         .banner-subtitle {
@@ -378,17 +391,19 @@
             opacity: 0.95;
             margin-bottom: 2rem;
             font-style: italic;
-            color: var(--text-secondary);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            color: var(--text-primary);
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,0.9),
+                1px 1px 2px rgba(0,0,0,1);
         }
 
         .banner-image {
             max-width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
             border-radius: 12px;
             box-shadow: 
-                0 8px 24px rgba(0,0,0,0.6),
+                0 8px 24px rgba(0,0,0,0.7),
                 0 0 0 3px var(--accent-color);
             border: 2px solid var(--stone-color);
         }
@@ -481,13 +496,13 @@
             gap: 2rem;
         }
 
-        /* Sidebar Widgets - Temporary fix */
+        /* Sidebar Widgets with UO Gump Borders */
         .sidebar-widget {
-            background: 
-                linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(13, 13, 13, 0.98));
-            border-radius: 8px;
-            border: 2px solid var(--accent-color);
-            overflow: hidden;
+            background: #1a1a1a;
+            border-radius: 0;
+            border: 12px solid transparent;
+            border-image: url('/assets/images/gumps/widget-border.png') 12 repeat;
+            overflow: visible;
             box-shadow: 
                 0 6px 18px rgba(0,0,0,0.6),
                 inset 0 0 15px rgba(139,69,19,0.15);
@@ -505,6 +520,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin: -12px -12px 12px -12px;
             border-bottom: 2px solid var(--accent-color);
         }
 
