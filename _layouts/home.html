@@ -532,7 +532,9 @@
             color: var(--text-primary);
             text-decoration: none;
             padding: 0.5rem;
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
             border-radius: 4px;
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
@@ -542,6 +544,21 @@
             background: var(--dark-bg);
             border-left-color: var(--accent-color);
             transform: translateX(5px);
+        }
+
+        .quick-link-button {
+            width: 24px;
+            height: 24px;
+            background-image: url('/assets/images/button-1.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: background-image 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .quick-links a:hover .quick-link-button {
+            background-image: url('/assets/images/button-1-clicked.png');
         }
 
         /* Discord Widget */
@@ -602,7 +619,7 @@
                 <img src="/assets/images/logo.png" alt="New Renaissance Logo">
                 <div class="logo-text">
                     <h1>New Renaissance</h1>
-                    <p>A Renaissance Era Ultima Online Shard</p>
+                    <p>A Custom Renaissance Era Ultima Online Shard</p>
                 </div>
             </div>
             
@@ -634,7 +651,7 @@
                 <section class="banner-section">
                 <div class="banner-content">
                     <h2 class="banner-title">Welcome to Britannia</h2>
-                    <p class="banner-subtitle">Experience classic Renaissance-era gameplay with 700 skill cap and authentic UO mechanics</p>
+                    <p class="banner-subtitle">Experience custom Renaissance-era gameplay</p>
                     <!-- Removed placeholder image since we're using background image -->
                 </div>
             </section>
@@ -651,7 +668,7 @@
                         <span class="news-item-date">January 20, 2025</span>
                     </div>
                     <div class="news-item-content">
-                        <p>We've released a major update with balance changes to PvP mechanics, new champion spawn rewards, and bug fixes for housing placement. Read the full patch notes for details.</p>
+                        <p></p>
                     </div>
                 </article>
 
@@ -661,7 +678,7 @@
                         <span class="news-item-date">January 18, 2025</span>
                     </div>
                     <div class="news-item-content">
-                        <p>Join us this Saturday for our monthly PvP tournament! Registration begins at 7 PM EST. Prizes include rare hued items and gold rewards.</p>
+                        <p></p>
                     </div>
                 </article>
 
@@ -671,7 +688,7 @@
                         <span class="news-item-date">January 15, 2025</span>
                     </div>
                     <div class="news-item-content">
-                        <p>Starting this week, new players will receive a welcome package including skill balls, starting gold, and a runebook with essential locations marked.</p>
+                        <p></p>
                     </div>
                 </article>
 
@@ -681,7 +698,7 @@
                         <span class="news-item-date">January 12, 2025</span>
                     </div>
                     <div class="news-item-content">
-                        <p>Several prime housing locations have become available near Britain and Trinsic. Check the housing guide for placement tips and available spots.</p>
+                        <p></p>
                     </div>
                 </article>
             </section>
@@ -694,14 +711,14 @@
                 <div class="widget-header">Quick Links</div>
                 <div class="widget-content">
                     <ul class="quick-links">
-                        <li><a href="/download/">🔽 Download Game</a></li>
-                        <li><a href="/character-creation/">⚔️ Character Creation</a></li>
-                        <li><a href="/bestiary/">🐉 Bestiary</a></li>
-                        <li><a href="/skills/">📖 Skills Guide</a></li>
-                        <li><a href="/pvp/">⚡ PvP Guide</a></li>
-                        <li><a href="/crafting/">🔨 Crafting Guide</a></li>
-                        <li><a href="/cities/">🏰 Cities & Towns</a></li>
-                        <li><a href="/dungeons/">🕳️ Dungeons</a></li>
+                        <li><a href="/download/"><div class="quick-link-button"></div><span>Download Game</span></a></li>
+                        <li><a href="/character-creation/"><div class="quick-link-button"></div><span>Character Creation</span></a></li>
+                        <li><a href="/bestiary/"><div class="quick-link-button"></div><span>Bestiary</span></a></li>
+                        <li><a href="/skills/"><div class="quick-link-button"></div><span>Skills Guide</span></a></li>
+                        <li><a href="/pvp/"><div class="quick-link-button"></div><span>PvP Guide</span></a></li>
+                        <li><a href="/crafting/"><div class="quick-link-button"></div><span>Crafting Guide</span></a></li>
+                        <li><a href="/cities/"><div class="quick-link-button"></div><span>Cities & Towns</span></a></li>
+                        <li><a href="/dungeons/"><div class="quick-link-button"></div><span>Dungeons</span></a></li>
                     </ul>
                 </div>
             </div>
