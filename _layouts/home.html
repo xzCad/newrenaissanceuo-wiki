@@ -519,31 +519,53 @@
             padding: 1.5rem;
         }
 
-        /* Quick Links Widget */
+        /* Quick Links Widget - Scroll Style */
+        .quick-links-scroll {
+            position: relative;
+            min-height: 400px;
+            background: 
+                url('/assets/images/scroll-top.png') top center no-repeat,
+                url('/assets/images/scroll-middle-1.png') 60px center repeat-y,
+                url('/assets/images/scroll-middle-2.png') 60px center repeat-y,
+                url('/assets/images/scroll-bottom.png') bottom center no-repeat;
+            background-size: 100% auto, 100% auto, 100% auto, 100% auto;
+            padding: 80px 40px 60px 40px;
+            margin: 0;
+        }
+
         .quick-links {
             list-style: none;
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            padding: 0;
         }
 
         .quick-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .quick-links a {
-            color: var(--text-primary);
+            color: #2C1810;
             text-decoration: none;
-            padding: 0.5rem;
+            padding: 0.75rem 1rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            border-radius: 4px;
+            border-radius: 6px;
             transition: all 0.3s ease;
-            border-left: 3px solid transparent;
+            background: rgba(245, 235, 215, 0.1);
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+            font-family: 'Times New Roman', serif;
         }
 
         .quick-links a:hover {
-            background: var(--dark-bg);
-            border-left-color: var(--accent-color);
-            transform: translateX(5px);
+            background: rgba(184, 134, 11, 0.2);
+            border-color: var(--accent-color);
+            transform: translateX(3px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .quick-link-button {
@@ -668,15 +690,13 @@
                         <span class="news-item-date">July 22, 2025</span>
                     </div>
                     <div class="news-item-content">
-                        <ul style="margin-left: 1.5rem; line-height: 1.6;">
-                            <li>Magic item loot drops are all now equally spread out. Shields, armor, weapons, and ranged have same chance to drop</li>
-                            <li>Cut house customization cost by 40%</li>
-                            <li>New title hue deeds added to character service vendor</li>
-                            <li>Clothing Bless Deeds added to character service vendor</li>
-                            <li>Ogres, Ogre Lords, Corpsers, and Whipping Vines now drop seeds</li>
-                            <li>Treasure maps can be dug up by anyone holding decoded map</li>
-                            <li>Increase stable max followers</li>
-                        </ul>
+                        <p>-Magic item loot drops are all now equally spread out. Shields, armor, weapons, and ranged have same chance to drop
+                        -Cut house customization cost by 40%
+                        -New title hue deeds added to character service vendor
+                        -Clothing Bless Deeds added to character service vendor
+                        -Ogres, Ogre Lords, Corpsers, and Whipping Vines now drop seeds
+                        -Treasure maps can be dug up by anyone holding decoded map
+                        -Increase stable max followers</p>
                     </div>
                 </article>
 
@@ -718,16 +738,18 @@
             <div class="sidebar-widget">
                 <div class="widget-header">Quick Links</div>
                 <div class="widget-content">
-                    <ul class="quick-links">
-                        <li><a href="/download/"><div class="quick-link-button"></div><span>Download Game</span></a></li>
-                        <li><a href="/character-creation/"><div class="quick-link-button"></div><span>Character Creation</span></a></li>
-                        <li><a href="/bestiary/"><div class="quick-link-button"></div><span>Bestiary</span></a></li>
-                        <li><a href="/skills/"><div class="quick-link-button"></div><span>Skills Guide</span></a></li>
-                        <li><a href="/pvp/"><div class="quick-link-button"></div><span>PvP Guide</span></a></li>
-                        <li><a href="/crafting/"><div class="quick-link-button"></div><span>Crafting Guide</span></a></li>
-                        <li><a href="/cities/"><div class="quick-link-button"></div><span>Cities & Towns</span></a></li>
-                        <li><a href="/dungeons/"><div class="quick-link-button"></div><span>Dungeons</span></a></li>
-                    </ul>
+                    <div class="quick-links-scroll">
+                        <ul class="quick-links">
+                            <li><a href="/download/"><div class="quick-link-button"></div><span>Download Game</span></a></li>
+                            <li><a href="/character-creation/"><div class="quick-link-button"></div><span>Character Creation</span></a></li>
+                            <li><a href="/bestiary/"><div class="quick-link-button"></div><span>Bestiary</span></a></li>
+                            <li><a href="/skills/"><div class="quick-link-button"></div><span>Skills Guide</span></a></li>
+                            <li><a href="/pvp/"><div class="quick-link-button"></div><span>PvP Guide</span></a></li>
+                            <li><a href="/crafting/"><div class="quick-link-button"></div><span>Crafting Guide</span></a></li>
+                            <li><a href="/cities/"><div class="quick-link-button"></div><span>Cities & Towns</span></a></li>
+                            <li><a href="/dungeons/"><div class="quick-link-button"></div><span>Dungeons</span></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
