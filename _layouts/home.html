@@ -289,7 +289,7 @@
 
         /* Sidebar Widgets with UO Gump Style */
         .sidebar-widget {
-            background: #000000; /* Dark gump center */
+            background: #1a1a1a;
             border-radius: 0;
             border: 12px solid transparent;
             border-image: url('/assets/images/gumps/widget-border.png') 12 repeat;
@@ -499,39 +499,6 @@
             gap: 2rem;
         }
 
-        /* Sidebar Widgets with UO Gump Borders */
-        .sidebar-widget {
-            background: #1a1a1a;
-            border-radius: 0;
-            border: 12px solid transparent;
-            border-image: url('/assets/images/gumps/widget-border.png') 12 repeat;
-            overflow: visible;
-            box-shadow: 
-                0 6px 18px rgba(0,0,0,0.6),
-                inset 0 0 15px rgba(139,69,19,0.15);
-            margin-bottom: 1.5rem;
-        }
-
-        .widget-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--text-primary);
-            padding: 1rem;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-align: center;
-            font-family: 'Times New Roman', serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            margin: -12px -12px 12px -12px;
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        .widget-content {
-            padding: 1.5rem;
-            color: var(--text-primary);
-        }
-
         .widget-header {
             background: 
                 linear-gradient(135deg, var(--primary-color), var(--secondary-color)),
@@ -550,44 +517,6 @@
 
         .widget-content {
             padding: 1.5rem;
-        }
-
-        /* Server Status Widget */
-        .server-status {
-            text-align: center;
-        }
-
-        .status-indicator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .status-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--success-color);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .player-count {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .peak-count {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
         }
 
         /* Quick Links Widget */
@@ -760,19 +689,6 @@
 
         <!-- Sidebar -->
         <aside class="sidebar">
-            <!-- Server Status Widget -->
-            <div class="sidebar-widget">
-                <div class="widget-header">Server Status</div>
-                <div class="widget-content server-status">
-                    <div class="status-indicator">
-                        <div class="status-dot"></div>
-                        <span>Online</span>
-                    </div>
-                    <div class="player-count">46 Players</div>
-                    <div class="peak-count">Peak: 48 Players</div>
-                </div>
-            </div>
-
             <!-- Quick Links Widget -->
             <div class="sidebar-widget">
                 <div class="widget-header">Quick Links</div>
