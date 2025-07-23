@@ -271,13 +271,13 @@
                 url('/assets/images/gumps/border-left.png') 16 repeat;  /* left edge */
         }
 
-        /* Content Area */
+        /* Content Area - Temporary fix without gump borders */
         .content-area {
-            background: #000000; /* Use the dark gump background */
-            border-radius: 0; /* Remove border radius for authentic gump look */
-            border: 16px solid transparent;
-            border-image: url('/assets/images/gumps/complete-border.png') 16 repeat;
-            overflow: visible;
+            background: 
+                linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(13, 13, 13, 0.98));
+            border-radius: 8px;
+            border: 3px solid var(--accent-color);
+            overflow: hidden;
             box-shadow: 
                 0 8px 24px rgba(0,0,0,0.8),
                 inset 0 0 20px rgba(139,69,19,0.2);
@@ -297,14 +297,15 @@
             margin-bottom: 1.5rem;
         }
 
-        /* News Items with Gump Borders */
+        /* News Items - Temporary fix */
         .news-item {
-            background: #000000; /* Dark gump background */
-            border-radius: 0;
+            background: 
+                linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(13, 13, 13, 0.98));
+            border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border: 10px solid transparent;
-            border-image: url('/assets/images/gumps/news-border.png') 10 repeat;
+            border: 2px solid var(--accent-color);
+            border-left: 4px solid var(--accent-color);
             transition: all 0.3s ease;
             position: relative;
         }
@@ -481,12 +482,13 @@
             gap: 2rem;
         }
 
+        /* Sidebar Widgets - Temporary fix */
         .sidebar-widget {
-            background: #000000; /* Dark gump center */
-            border-radius: 0;
-            border: 12px solid transparent;
-            border-image: url('/assets/images/gumps/widget-border.png') 12 repeat;
-            overflow: visible;
+            background: 
+                linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(13, 13, 13, 0.98));
+            border-radius: 8px;
+            border: 2px solid var(--accent-color);
+            overflow: hidden;
             box-shadow: 
                 0 6px 18px rgba(0,0,0,0.6),
                 inset 0 0 15px rgba(139,69,19,0.15);
@@ -504,7 +506,7 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            margin: -12px -12px 12px -12px; /* Extend to border edges */
+            border-bottom: 2px solid var(--accent-color);
         }
 
         .widget-content {
