@@ -521,15 +521,47 @@
         /* Quick Links Widget - Scroll Style */
         .quick-links-scroll {
             position: relative;
-            min-height: 400px;
-            background: 
-                url('/assets/images/scroll-top.png') top center no-repeat,
-                url('/assets/images/scroll-middle-1.png') 60px center repeat-y,
-                url('/assets/images/scroll-middle-2.png') 60px center repeat-y,
-                url('/assets/images/scroll-bottom.png') bottom center no-repeat;
-            background-size: 100% auto, 100% auto, 100% auto, 100% auto;
-            padding: 80px 40px 60px 40px;
+            min-height: 500px;
+            background-color: transparent;
+            padding: 0;
             margin: 0;
+        }
+
+        .quick-links-scroll::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('/assets/images/scroll-top.png') center top no-repeat;
+            background-size: contain;
+            z-index: 1;
+        }
+
+        .quick-links-scroll::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: url('/assets/images/scroll-bottom.png') center bottom no-repeat;
+            background-size: contain;
+            z-index: 1;
+        }
+
+        .scroll-middle {
+            position: absolute;
+            top: 60px;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+            background: 
+                url('/assets/images/scroll-middle-1.png') center repeat-y,
+                url('/assets/images/scroll-middle-2.png') center repeat-y;
+            background-size: contain, contain;
+            z-index: 0;
         }
 
         .quick-links {
@@ -537,7 +569,7 @@
             position: relative;
             z-index: 2;
             margin: 0;
-            padding: 0;
+            padding: 80px 30px 80px 30px;
         }
 
         .quick-links li {
@@ -738,6 +770,7 @@
                 <div class="widget-header">Quick Links</div>
                 <div class="widget-content">
                     <div class="quick-links-scroll">
+                        <div class="scroll-middle"></div>
                         <ul class="quick-links">
                             <li><a href="/download/"><div class="quick-link-button"></div><span>Download Game</span></a></li>
                             <li><a href="/character-creation/"><div class="quick-link-button"></div><span>Character Creation</span></a></li>
