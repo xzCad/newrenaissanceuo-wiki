@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Renaissance - A Renaissance Era Ultima Online Shard</title>
     <style>
+        /* Enhanced Medieval Font Stack - No extraction needed! */
         :root {
             --primary-color: #6B2C15;
             --secondary-color: #8B4513;
@@ -19,6 +20,8 @@
             --danger-color: #8B0000;
             --magic-color: #9370DB;
             --stone-color: #696969;
+            --uo-font-main: 'Times New Roman', 'Georgia', serif;
+            --uo-font-title: 'Trajan Pro', 'Times New Roman', serif;
         }
 
         * {
@@ -28,7 +31,7 @@
         }
 
         body {
-            font-family: 'Times New Roman', serif;
+            font-family: var(--uo-font-main);
             background: 
                 linear-gradient(rgba(13, 13, 13, 0.85), rgba(13, 13, 13, 0.90)),
                 url('/assets/images/uo-background.jpg') center center,
@@ -336,7 +339,7 @@
         .banner-section {
             background: 
                 linear-gradient(rgba(107, 44, 21, 0.65), rgba(139, 69, 19, 0.75)),
-                url('/assets/images/britannia2012.jpg') center center,
+                url('/assets/images/britannia-banner.jpg') center center,
                 linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             background-size: auto, cover, auto;
             background-position: center, center, center;
@@ -699,12 +702,11 @@
     <div class="main-container">
         <!-- Content Area -->
         <main class="content-area">
-            <!-- Banner Section -->
-            <section class="banner-section">
+                <section class="banner-section">
                 <div class="banner-content">
                     <h2 class="banner-title">Welcome to Britannia</h2>
                     <p class="banner-subtitle">Experience classic Renaissance-era gameplay with 700 skill cap and authentic UO mechanics</p>
-                    <img src="/assets/images/britannia-banner.jpg" alt="Britannia Landscape" class="banner-image">
+                    <!-- Removed placeholder image since we're using background image -->
                 </div>
             </section>
 
