@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ site.title }} - {{ site.description }}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>New Renaissance - A Renaissance Era Ultima Online Shard</title>
     <style>
         :root {
-            --primary-color: #8B4513;
-            --secondary-color: #CD853F;
-            --accent-color: #DAA520;
-            --dark-bg: #1a1a1a;
-            --surface-color: #2d2d2d;
-            --border-color: #404040;
-            --text-primary: #ffffff;
-            --text-secondary: #cccccc;
-            --success-color: #4CAF50;
-            --warning-color: #ff9800;
+            --primary-color: #6B2C15;
+            --secondary-color: #8B4513;
+            --accent-color: #B8860B;
+            --dark-bg: #0D0D0D;
+            --surface-color: #1A1A1A;
+            --border-color: #3A3A3A;
+            --text-primary: #E6D5B7;
+            --text-secondary: #C4B998;
+            --success-color: #228B22;
+            --warning-color: #FF6347;
+            --danger-color: #8B0000;
+            --magic-color: #9370DB;
+            --stone-color: #696969;
         }
 
         * {
@@ -26,487 +28,775 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            font-family: 'Times New Roman', serif;
+            background: 
+                linear-gradient(rgba(13, 13, 13, 0.85), rgba(13, 13, 13, 0.90)),
+                url('/assets/images/uo-background.jpg') center center,
+                radial-gradient(circle at 30% 70%, rgba(107, 44, 21, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(139, 69, 19, 0.2) 0%, transparent 50%);
+            background-size: cover, cover, 400px 400px, 300px 300px;
+            background-attachment: fixed, fixed, scroll, scroll;
             color: var(--text-primary);
             line-height: 1.6;
-            min-height: 100vh;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* Header Section */
+        .header {
+            background: 
+                linear-gradient(135deg, var(--primary-color), var(--secondary-color)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><rect width="100" height="50" fill="none"/><path d="M0,25 Q25,10 50,25 T100,25" stroke="rgba(184,134,11,0.3)" stroke-width="2" fill="none"/><path d="M0,35 Q25,20 50,35 T100,35" stroke="rgba(184,134,11,0.2)" stroke-width="1" fill="none"/></svg>');
+            border-bottom: 4px solid var(--accent-color);
+            box-shadow: 
+                0 4px 12px rgba(0,0,0,0.7),
+                inset 0 1px 0 rgba(184,134,11,0.3);
+            position: relative;
         }
 
-        /* Header */
-        header {
-            background: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
+        .header::before {
+            content: '';
+            position: absolute;
             top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 2px solid var(--primary-color);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, 
+                    transparent 0%, 
+                    rgba(184,134,11,0.1) 25%, 
+                    rgba(184,134,11,0.2) 50%, 
+                    rgba(184,134,11,0.1) 75%, 
+                    transparent 100%);
+            pointer-events: none;
         }
 
-        nav {
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-            .nav-links a {
-                color: var(--text-secondary);
-                text-decoration: none;
-                transition: color 0.3s ease;
-                padding: 0.5rem 1rem;
-                border-radius: 4px;
-            }
-
-                .nav-links a:hover {
-                    color: var(--accent-color);
-                    background: rgba(139, 69, 19, 0.1);
-                }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><path fill="%23888" d="M0,400 L300,350 L600,380 L900,320 L1200,340 L1200,600 L0,600 Z"/></svg>');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
+        .logo-section {
             display: flex;
             align-items: center;
-            text-align: center;
-            margin-top: 80px;
+            gap: 1.5rem;
         }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        .logo-section img {
+            width: 70px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-discord {
-            display: inline-block;
-            padding: 1.2rem 2.5rem;
-            background: #5865F2;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            border: none !important;
-            outline: none !important;
-            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-            .btn-discord:hover {
-                background: #4752C4;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
-            }
-
-            .btn-discord i {
-                margin-right: 0.8rem;
-                font-size: 1.3rem;
-            }
-
-            .btn-discord:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-                transition: left 0.5s;
-            }
-
-            .btn-discord:hover:before {
-                left: 100%;
-            }
-
-        /* Features Section */
-        .features-section {
-            padding: 4rem 0;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .feature-card {
-            background: var(--surface-color);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-        }
-
-            .feature-card:hover {
-                transform: translateY(-5px);
-                border-color: var(--primary-color);
-                box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
-            }
-
-            .feature-card h3 {
-                color: var(--accent-color);
-                margin-bottom: 1rem;
-                text-align: center;
-            }
-
-        /* Wiki Section */
-        .wiki-section {
-            padding: 4rem 0;
-            background: var(--dark-bg);
-        }
-
-        .wiki-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .wiki-card {
-            background: var(--surface-color);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-            .wiki-card:hover {
-                border-color: var(--primary-color);
-                transform: translateY(-2px);
-            }
-
-            .wiki-card strong {
-                color: var(--accent-color);
-            }
-
-        /* Download Section */
-        .btn-download {
-            display: inline-block;
-            padding: 2rem 3rem;
-            background: linear-gradient(135deg, #8B4513 0%, #CD853F 50%, #8B4513 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
+        .logo-text h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,0.9),
+                0 0 10px rgba(184,134,11,0.3);
+            font-family: 'Times New Roman', serif;
             font-weight: bold;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-            border: 3px solid #DAA520;
-            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-            .btn-download:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-                transition: left 0.5s;
-            }
-
-            .btn-download:hover:before {
-                left: 100%;
-            }
-
-            .btn-download:hover {
-                background: linear-gradient(135deg, #CD853F 0%, #DAA520 50%, #CD853F 100%);
-                border-color: #FFD700;
-                transform: translateY(-3px);
-                box-shadow: 0 12px 30px rgba(139, 69, 19, 0.6);
-            }
-
-            .btn-download i {
-                margin-right: 0.8rem;
-                font-size: 1.5rem;
-            }
-
-        /* Footer */
-        footer {
-            background: var(--dark-bg);
-            padding: 3rem 0 1rem;
-            border-top: 1px solid var(--border-color);
+        .logo-text p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin: 0;
+            font-style: italic;
+            color: var(--text-secondary);
         }
 
-        .footer-content {
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-header {
+            padding: 1rem 2rem;
+            border: 2px solid;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Times New Roman', serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-header:hover::before {
+            left: 100%;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, var(--success-color), #32CD32);
+            color: white;
+            border-color: #90EE90;
+            box-shadow: 
+                0 4px 12px rgba(34, 139, 34, 0.4),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(135deg, #32CD32, var(--success-color));
+            transform: translateY(-2px);
+            box-shadow: 
+                0 6px 20px rgba(34, 139, 34, 0.6),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+        }
+
+        .btn-discord {
+            background: linear-gradient(135deg, #4B0082, #663399);
+            color: white;
+            border-color: #9370DB;
+            box-shadow: 
+                0 4px 12px rgba(75, 0, 130, 0.4),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+
+        .btn-discord:hover {
+            background: linear-gradient(135deg, #663399, #4B0082);
+            transform: translateY(-2px);
+            box-shadow: 
+                0 6px 20px rgba(75, 0, 130, 0.6),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+        }
+
+        /* Navigation */
+        .navigation {
+            background: 
+                linear-gradient(135deg, rgba(0,0,0,0.6), rgba(26,26,26,0.8)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="20"><rect width="40" height="20" fill="none"/><rect x="0" y="8" width="40" height="4" fill="rgba(184,134,11,0.1)"/></svg>');
+            padding: 1rem 0;
+            border-top: 1px solid rgba(184,134,11,0.3);
+            border-bottom: 1px solid rgba(184,134,11,0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-family: 'Times New Roman', serif;
+            border: 2px solid transparent;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            color: var(--dark-bg);
+            border-color: var(--accent-color);
+            box-shadow: 
+                0 4px 12px rgba(184,134,11,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Main Layout */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 300px;
             gap: 2rem;
-            margin-bottom: 2rem;
         }
 
-        .footer-section h3 {
+        /* UO Gump Border System */
+        .uo-gump-box {
+            position: relative;
+            background: #000000; /* Dark center from your gump */
+            padding: 20px;
+            margin: 10px 0;
+        }
+
+        .uo-gump-box::before,
+        .uo-gump-box::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+        }
+
+        /* Create border using your gump pieces */
+        .uo-gump-border {
+            border-style: solid;
+            border-width: 16px;
+            border-image: 
+                url('/assets/images/gumps/border-top-left.png') 16,    /* corner */
+                url('/assets/images/gumps/border-top.png') 16 repeat,   /* top edge */
+                url('/assets/images/gumps/border-top-right.png') 16,   /* corner */
+                url('/assets/images/gumps/border-right.png') 16 repeat, /* right edge */
+                url('/assets/images/gumps/border-bottom-right.png') 16, /* corner */
+                url('/assets/images/gumps/border-bottom.png') 16 repeat, /* bottom edge */
+                url('/assets/images/gumps/border-bottom-left.png') 16, /* corner */
+                url('/assets/images/gumps/border-left.png') 16 repeat;  /* left edge */
+        }
+
+        /* Content Area */
+        .content-area {
+            background: #000000; /* Use the dark gump background */
+            border-radius: 0; /* Remove border radius for authentic gump look */
+            border: 16px solid transparent;
+            border-image: url('/assets/images/gumps/complete-border.png') 16 repeat;
+            overflow: visible;
+            box-shadow: 
+                0 8px 24px rgba(0,0,0,0.8),
+                inset 0 0 20px rgba(139,69,19,0.2);
+            position: relative;
+        }
+
+        /* Sidebar Widgets with UO Gump Style */
+        .sidebar-widget {
+            background: #000000; /* Dark gump center */
+            border-radius: 0;
+            border: 12px solid transparent;
+            border-image: url('/assets/images/gumps/widget-border.png') 12 repeat;
+            overflow: visible;
+            box-shadow: 
+                0 6px 18px rgba(0,0,0,0.6),
+                inset 0 0 15px rgba(139,69,19,0.15);
+            margin-bottom: 1.5rem;
+        }
+
+        /* News Items with Gump Borders */
+        .news-item {
+            background: #000000; /* Dark gump background */
+            border-radius: 0;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 10px solid transparent;
+            border-image: url('/assets/images/gumps/news-border.png') 10 repeat;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .news-item:hover {
+            transform: translateX(5px);
+            box-shadow: 
+                0 6px 20px rgba(0,0,0,0.5),
+                inset 0 0 15px rgba(184,134,11,0.2);
+        }
+
+        /* Widget Headers with UO Style */
+        .widget-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-primary);
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            border-bottom: none; /* Remove since border is handled by border-image */
+            margin: -12px -12px 12px -12px; /* Negative margins to extend to border edge */
+        }
+
+        /* Banner Section */
+        .banner-section {
+            background: 
+                linear-gradient(135deg, var(--primary-color), var(--secondary-color)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="60"><defs><pattern id="runes" patternUnits="userSpaceOnUse" width="120" height="60"><rect width="120" height="60" fill="none"/><text x="20" y="25" fill="rgba(184,134,11,0.2)" font-family="serif" font-size="16">⚔</text><text x="60" y="40" fill="rgba(184,134,11,0.15)" font-family="serif" font-size="14">🛡</text><text x="100" y="20" fill="rgba(184,134,11,0.2)" font-family="serif" font-size="12">💎</text></pattern></defs><rect width="120" height="60" fill="url(%23runes)"/></svg>');
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .banner-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(184,134,11,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139,69,19,0.1) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(184,134,11,0.05) 50%, transparent 70%);
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 
+                3px 3px 6px rgba(0,0,0,0.9),
+                0 0 20px rgba(184,134,11,0.3);
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .banner-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .banner-image {
+            max-width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 
+                0 8px 24px rgba(0,0,0,0.6),
+                0 0 0 3px var(--accent-color);
+            border: 2px solid var(--stone-color);
+        }
+
+        /* News/Announcements */
+        .news-section {
+            padding: 2rem;
+        }
+
+        .news-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .news-title {
             color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .news-item {
+            background: 
+                url('/assets/images/gumps/scroll-paper.png') center center,
+                linear-gradient(135deg, rgba(13, 13, 13, 0.85), rgba(26, 26, 26, 0.90));
+            background-size: cover, auto;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 12px solid transparent;
+            border-image: url('/assets/images/gumps/stone-border.png') 12 repeat;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .news-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .news-item:hover::before {
+            opacity: 1;
+        }
+
+        .news-item:hover {
+            transform: translateX(8px);
+            box-shadow: 
+                0 6px 20px rgba(0,0,0,0.4),
+                inset 0 0 15px rgba(184,134,11,0.1);
+        }
+
+        .news-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-item-title {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .news-item-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .news-item-content {
+            line-height: 1.6;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: #000000; /* Dark gump center */
+            border-radius: 0;
+            border: 12px solid transparent;
+            border-image: url('/assets/images/gumps/widget-border.png') 12 repeat;
+            overflow: visible;
+            box-shadow: 
+                0 6px 18px rgba(0,0,0,0.6),
+                inset 0 0 15px rgba(139,69,19,0.15);
+            margin-bottom: 1.5rem;
+        }
+
+        .widget-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-primary);
+            padding: 1rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            margin: -12px -12px 12px -12px; /* Extend to border edges */
+        }
+
+        .widget-content {
+            padding: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .widget-header {
+            background: 
+                linear-gradient(135deg, var(--primary-color), var(--secondary-color)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20"><rect width="30" height="20" fill="none"/><rect x="0" y="8" width="30" height="4" fill="rgba(184,134,11,0.2)"/></svg>');
+            color: var(--text-primary);
+            padding: 1.25rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .widget-content {
+            padding: 1.5rem;
+        }
+
+        /* Server Status Widget */
+        .server-status {
+            text-align: center;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
-        .footer-section a {
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--success-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .player-count {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .peak-count {
             color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Quick Links Widget */
+        .quick-links {
+            list-style: none;
+        }
+
+        .quick-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .quick-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .quick-links a:hover {
+            background: var(--dark-bg);
+            border-left-color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        /* Discord Widget */
+        .discord-widget {
+            text-align: center;
+        }
+
+        .discord-invite {
+            background: #5865F2;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
             text-decoration: none;
             display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
 
-            .footer-section a:hover {
-                color: var(--accent-color);
-            }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-secondary);
+        .discord-invite:hover {
+            background: #4752C4;
+            transform: translateY(-2px);
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .cta-buttons {
+            .header-top {
                 flex-direction: column;
-                align-items: center;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .main-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .banner-title {
+                font-size: 2rem;
+            }
+
+            .logo-text h1 {
+                font-size: 1.5rem;
             }
         }
-
-        /* Section Styling */
-        .section {
-            padding: 4rem 0;
-        }
-
-            .section h2 {
-                text-align: center;
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-                color: var(--accent-color);
-            }
-
-            .section p {
-                text-align: center;
-                max-width: 600px;
-                margin: 0 auto 2rem;
-                color: var(--text-secondary);
-            }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">UO: New Renaissance</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#wiki">Wiki</a></li>
-                <li><a href="#guides">Guides</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#download">Download</a></li>
-            </ul>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="logo-section">
+                <img src="/assets/images/logo.png" alt="New Renaissance Logo">
+                <div class="logo-text">
+                    <h1>New Renaissance</h1>
+                    <p>A Renaissance Era Ultima Online Shard</p>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <a href="/download/" class="btn-header btn-download">Download Now</a>
+                <a href="https://discord.gg/aynT7Cv82d" class="btn-header btn-discord" target="_blank">Join Discord</a>
+            </div>
+        </div>
+
+        <nav class="navigation">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="/bestiary/">Bestiary</a></li>
+                    <li><a href="/skills/">Skills</a></li>
+                    <li><a href="/pvp/">PvP</a></li>
+                    <li><a href="/crafting/">Crafting</a></li>
+                    <li><a href="/events/">Events</a></li>
+                    <li><a href="/factions/">Factions</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Welcome to New Renaissance</h1>
-                <p>A core Renaissance era shard enhanced with select features from other expansions. Experience classic Felucca-only gameplay with traditional factions, 700 skill cap, and authentic UO mechanics in a dedicated community of players.</p>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Content Area -->
+        <main class="content-area">
+            <!-- Banner Section -->
+            <section class="banner-section">
+                <div class="banner-content">
+                    <h2 class="banner-title">Welcome to Britannia</h2>
+                    <p class="banner-subtitle">Experience classic Renaissance-era gameplay with 700 skill cap and authentic UO mechanics</p>
+                    <img src="/assets/images/britannia-banner.jpg" alt="Britannia Landscape" class="banner-image">
+                </div>
+            </section>
 
-                <div class="cta-buttons">
-                    <a href="{{ site.discord_invite }}" class="btn-discord" target="_blank">
-                        Join Discord
+            <!-- News/Announcements -->
+            <section class="news-section">
+                <div class="news-header">
+                    <h2 class="news-title">Latest News & Announcements</h2>
+                </div>
+
+                <article class="news-item">
+                    <div class="news-item-header">
+                        <h3 class="news-item-title">Server Update 1.2.3 Released</h3>
+                        <span class="news-item-date">January 20, 2025</span>
+                    </div>
+                    <div class="news-item-content">
+                        <p>We've released a major update with balance changes to PvP mechanics, new champion spawn rewards, and bug fixes for housing placement. Read the full patch notes for details.</p>
+                    </div>
+                </article>
+
+                <article class="news-item">
+                    <div class="news-item-header">
+                        <h3 class="news-item-title">Monthly PvP Tournament</h3>
+                        <span class="news-item-date">January 18, 2025</span>
+                    </div>
+                    <div class="news-item-content">
+                        <p>Join us this Saturday for our monthly PvP tournament! Registration begins at 7 PM EST. Prizes include rare hued items and gold rewards.</p>
+                    </div>
+                </article>
+
+                <article class="news-item">
+                    <div class="news-item-header">
+                        <h3 class="news-item-title">New Player Welcome Event</h3>
+                        <span class="news-item-date">January 15, 2025</span>
+                    </div>
+                    <div class="news-item-content">
+                        <p>Starting this week, new players will receive a welcome package including skill balls, starting gold, and a runebook with essential locations marked.</p>
+                    </div>
+                </article>
+
+                <article class="news-item">
+                    <div class="news-item-header">
+                        <h3 class="news-item-title">Housing Plot Availability</h3>
+                        <span class="news-item-date">January 12, 2025</span>
+                    </div>
+                    <div class="news-item-content">
+                        <p>Several prime housing locations have become available near Britain and Trinsic. Check the housing guide for placement tips and available spots.</p>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Server Status Widget -->
+            <div class="sidebar-widget">
+                <div class="widget-header">Server Status</div>
+                <div class="widget-content server-status">
+                    <div class="status-indicator">
+                        <div class="status-dot"></div>
+                        <span>Online</span>
+                    </div>
+                    <div class="player-count">46 Players</div>
+                    <div class="peak-count">Peak: 48 Players</div>
+                </div>
+            </div>
+
+            <!-- Quick Links Widget -->
+            <div class="sidebar-widget">
+                <div class="widget-header">Quick Links</div>
+                <div class="widget-content">
+                    <ul class="quick-links">
+                        <li><a href="/download/">🔽 Download Game</a></li>
+                        <li><a href="/character-creation/">⚔️ Character Creation</a></li>
+                        <li><a href="/bestiary/">🐉 Bestiary</a></li>
+                        <li><a href="/skills/">📖 Skills Guide</a></li>
+                        <li><a href="/pvp/">⚡ PvP Guide</a></li>
+                        <li><a href="/crafting/">🔨 Crafting Guide</a></li>
+                        <li><a href="/cities/">🏰 Cities & Towns</a></li>
+                        <li><a href="/dungeons/">🕳️ Dungeons</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Discord Widget -->
+            <div class="sidebar-widget">
+                <div class="widget-header">Community</div>
+                <div class="widget-content discord-widget">
+                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Join our active community on Discord for real-time chat, events, and support!</p>
+                    <a href="https://discord.gg/aynT7Cv82d" class="discord-invite" target="_blank">
+                        💬 Join Discord Server
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="features" class="section">
-        <div class="container">
-            <h2>What Makes Our Realm Special?</h2>
-            <p>Discover the privileges and adventures that await you in the lands of New Renaissance.</p>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Era-Accurate Gameplay</h3>
-                    <p>Experience Ultima Online exactly as it was during the Renaissance era, with authentic mechanics and balance that made the game legendary.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h3>Active Community</h3>
-                    <p>Join hundreds of active players in a thriving community with daily events, guild wars, and memorable adventures waiting around every corner.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h3>Balanced PvP</h3>
-                    <p>Engage in carefully balanced player vs player combat with multiple viable templates, faction warfare, and skill-based competition.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h3>700 Skill Cap</h3>
-                    <p>Build your perfect character with 700 total skill points and 225 stat points, allowing for diverse and specialized character builds.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h3>Custom Content</h3>
-                    <p>Discover unique quests, events, and features designed specifically for our shard while maintaining the classic UO experience.</p>
-                </div>
-
-                <div class="feature-card">
-                    <h3>Classic Factions</h3>
-                    <p>Join the eternal struggle between Order and Chaos, True Britannians, Council of Mages, Minax, and the Shadowlords in epic faction warfare.</p>
+            <!-- Server Info Widget -->
+            <div class="sidebar-widget">
+                <div class="widget-header">Server Information</div>
+                <div class="widget-content">
+                    <div style="color: var(--text-secondary); line-height: 1.8;">
+                        <strong style="color: var(--accent-color);">Era:</strong> Renaissance<br>
+                        <strong style="color: var(--accent-color);">Skill Cap:</strong> 700 points<br>
+                        <strong style="color: var(--accent-color);">Stat Cap:</strong> 225 points<br>
+                        <strong style="color: var(--accent-color);">Facet:</strong> Felucca Only<br>
+                        <strong style="color: var(--accent-color);">PvP:</strong> Enabled<br>
+                        <strong style="color: var(--accent-color);">Factions:</strong> Classic System
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="wiki" class="wiki-section">
-        <div class="container">
-            <h2>Knowledge Base</h2>
-            <p>Everything you need to master your journey through the realm of New Renaissance.</p>
-
-            <div class="wiki-grid">
-                <a href="/getting-started" class="wiki-card">
-                    <strong>Getting Started</strong><br>
-                    <small>Begin your journey in our realm</small>
-                </a>
-
-                <a href="/skills" class="wiki-card">
-                    <strong>Skills & Arts</strong><br>
-                    <small>Master all crafts and combat disciplines</small>
-                </a>
-
-                <a href="/pvp-guide" class="wiki-card">
-                    <strong>Combat Guide</strong><br>
-                    <small>Warfare tactics and strategies</small>
-                </a>
-
-                <a href="/quests" class="wiki-card">
-                    <strong>Quests & Adventures</strong><br>
-                    <small>Epic tales and valuable rewards</small>
-                </a>
-
-                <a href="/housing" class="wiki-card">
-                    <strong>Housing & Estates</strong><br>
-                    <small>Build your castle and stronghold</small>
-                </a>
-
-                <a href="/monsters" class="wiki-card">
-                    <strong>Bestiary</strong><br>
-                    <small>Creatures, monsters, and their treasures</small>
-                </a>
-
-                <a href="/items" class="wiki-card">
-                    <strong>Items & Equipment</strong><br>
-                    <small>Weapons, armor, and magical artifacts</small>
-                </a>
-
-                <a href="/events" class="wiki-card">
-                    <strong>Server Events</strong><br>
-                    <small>Celebrations and tournaments</small>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="download" class="section">
-        <div class="container" style="text-align: center;">
-            <h2>Ready to Begin?</h2>
-            <p>Join fellow adventurers in the ultimate Britannia experience. Download now and start your epic journey through New Renaissance!</p>
-
-            <div style="margin: 2rem 0;">
-                <a href="{{ site.download_url | default: 'http://patch.newrenaissanceuo.com:2595/download' }}" class="btn-download">
-                    DOWNLOAD NOW
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Game Resources</h3>
-                    <a href="/getting-started">Getting Started</a>
-                    <a href="/skills">Skills Guide</a>
-                    <a href="/pvp-guide">PvP Guide</a>
-                    <a href="/housing">Housing</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Community</h3>
-                    <a href="{{ site.discord_invite }}" target="_blank">Discord Server</a>
-                    <a href="/community">Community Hub</a>
-                    <a href="/events">Server Events</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Information</h3>
-                    <a href="/server-info">Server Info</a>
-                    <a href="/rules">Rules & Policies</a>
-                    <a href="/staff">Staff Team</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Server Details</h3>
-                    <p><strong>Era:</strong> Custom Renaissance</p>
-                    <p><strong>Skill Cap:</strong> 700 points</p>
-                    <p><strong>Stat Cap:</strong> 225 points</p>
-                    <p><strong>Map:</strong> Felucca</p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 Ultima Online: New Renaissance. Not affiliated with Electronic Arts or Origin Systems.</p>
-            </div>
-        </div>
-    </footer>
+        </aside>
+    </div>
 </body>
 </html>
