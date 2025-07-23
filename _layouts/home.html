@@ -274,12 +274,11 @@
                 url('/assets/images/gumps/border-left.png') 16 repeat;  /* left edge */
         }
 
-        /* Content Area with UO Gump Borders */
+        /* Content Area - Simplified */
         .content-area {
             background: #1a1a1a;
-            border-radius: 0;
-            border: 16px solid transparent;
-            border-image: url('/assets/images/gumps/border-combined.png') 16 repeat;
+            border-radius: 8px;
+            border: 2px solid var(--accent-color);
             overflow: visible;
             box-shadow: 
                 0 8px 24px rgba(0,0,0,0.8),
@@ -287,12 +286,11 @@
             position: relative;
         }
 
-        /* Sidebar Widgets with UO Gump Style */
+        /* Sidebar Widgets - Simplified */
         .sidebar-widget {
             background: #1a1a1a;
-            border-radius: 0;
-            border: 12px solid transparent;
-            border-image: url('/assets/images/gumps/widget-border.png') 12 repeat;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
             overflow: visible;
             box-shadow: 
                 0 6px 18px rgba(0,0,0,0.6),
@@ -300,14 +298,13 @@
             margin-bottom: 1.5rem;
         }
 
-        /* News Items with UO Gump Borders */
+        /* News Items - Simplified */
         .news-item {
-            background: #1a1a1a;
-            border-radius: 0;
+            background: linear-gradient(135deg, rgba(13, 13, 13, 0.85), rgba(26, 26, 26, 0.90));
+            border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border: 10px solid transparent;
-            border-image: url('/assets/images/gumps/news-border.png') 10 repeat;
+            border: 2px solid var(--border-color);
             transition: all 0.3s ease;
             position: relative;
         }
@@ -319,20 +316,22 @@
                 inset 0 0 15px rgba(184,134,11,0.2);
         }
 
-        /* Widget Headers with UO Style */
+        /* Widget Headers - Simplified */
         .widget-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: 
+                linear-gradient(135deg, var(--primary-color), var(--secondary-color)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20"><rect width="30" height="20" fill="none"/><rect x="0" y="8" width="30" height="4" fill="rgba(184,134,11,0.2)"/></svg>');
             color: var(--text-primary);
-            padding: 1rem;
+            padding: 1.25rem;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             text-align: center;
             font-family: 'Times New Roman', serif;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            border-bottom: none; /* Remove since border is handled by border-image */
-            margin: -12px -12px 12px -12px; /* Negative margins to extend to border edge */
+            border-bottom: 2px solid var(--accent-color);
+            border-radius: 8px 8px 0 0;
         }
 
         /* Banner Section with Britannia Background */
@@ -431,15 +430,11 @@
         }
 
         .news-item {
-            background: 
-                url('/assets/images/gumps/scroll-paper.png') center center,
-                linear-gradient(135deg, rgba(13, 13, 13, 0.85), rgba(26, 26, 26, 0.90));
-            background-size: cover, auto;
+            background: linear-gradient(135deg, rgba(13, 13, 13, 0.85), rgba(26, 26, 26, 0.90));
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border: 12px solid transparent;
-            border-image: url('/assets/images/gumps/stone-border.png') 12 repeat;
+            border: 2px solid var(--border-color);
             transition: all 0.3s ease;
             position: relative;
         }
