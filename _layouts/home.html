@@ -244,36 +244,6 @@
             gap: 2rem;
         }
 
-        /* UO Gump Border System */
-        .uo-gump-box {
-            position: relative;
-            background: #000000; /* Dark center from your gump */
-            padding: 20px;
-            margin: 10px 0;
-        }
-
-        .uo-gump-box::before,
-        .uo-gump-box::after {
-            content: '';
-            position: absolute;
-            pointer-events: none;
-        }
-
-        /* Create border using your gump pieces */
-        .uo-gump-border {
-            border-style: solid;
-            border-width: 16px;
-            border-image: 
-                url('/assets/images/gumps/border-top-left.png') 16,    /* corner */
-                url('/assets/images/gumps/border-top.png') 16 repeat,   /* top edge */
-                url('/assets/images/gumps/border-top-right.png') 16,   /* corner */
-                url('/assets/images/gumps/border-right.png') 16 repeat, /* right edge */
-                url('/assets/images/gumps/border-bottom-right.png') 16, /* corner */
-                url('/assets/images/gumps/border-bottom.png') 16 repeat, /* bottom edge */
-                url('/assets/images/gumps/border-bottom-left.png') 16, /* corner */
-                url('/assets/images/gumps/border-left.png') 16 repeat;  /* left edge */
-        }
-
         /* Content Area - Simplified */
         .content-area {
             background: #1a1a1a;
@@ -368,10 +338,9 @@
         .banner-content {
             position: relative;
             z-index: 2;
-            background: rgba(0,0,0,0.3);
+            background: transparent;
             padding: 2rem;
             border-radius: 12px;
-            backdrop-filter: blur(2px);
         }
 
         .banner-title {
@@ -493,105 +462,15 @@
             gap: 2rem;
         }
 
-        .widget-header {
-            background: 
-                linear-gradient(135deg, var(--primary-color), var(--secondary-color)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20"><rect width="30" height="20" fill="none"/><rect x="0" y="8" width="30" height="4" fill="rgba(184,134,11,0.2)"/></svg>');
-            color: var(--text-primary);
-            padding: 1.25rem;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-align: center;
-            font-family: 'Times New Roman', serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            border-bottom: 2px solid var(--accent-color);
-        }
-
         .widget-content {
             padding: 1.5rem;
         }
 
-/* Quick Links Widget - Gump Style */
-        .quick-links-scroll {
-            position: relative;
-            width: 300px;
-            height: 500px;
-            background: url('/assets/images/gump200.png') center center no-repeat;
-            background-size: auto;
-            padding: 0;
-            margin: 0 auto 1.5rem auto;
-        }
-
-        /* Gump border pieces - fixed positioning to prevent overlap */
-        .quick-links-scroll::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                url('/assets/images/gump206.png') top left no-repeat,
-                url('/assets/images/gump207.png') top right no-repeat,
-                url('/assets/images/gump204.png') bottom left no-repeat,
-                url('/assets/images/gump205.png') bottom right no-repeat;
-            background-size: 
-                auto auto,
-                auto auto,
-                auto auto,
-                auto auto;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* Separate element for edges to avoid corner overlap */
-        .quick-links-scroll::after {
-            content: '';
-            position: absolute;
-            top: 16px;
-            left: 0;
-            right: 0;
-            bottom: 16px;
-            background: 
-                url('/assets/images/gump201.png') top center repeat-x,
-                url('/assets/images/gump203.png') center right repeat-y,
-                url('/assets/images/gump202.png') center left repeat-y;
-            background-size: 
-                auto auto,
-                auto auto,
-                auto auto;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* Remove the dark interior since gump200 is the background */
-        .scroll-middle {
-            display: none;
-        }
-
-        /* Quick Links header inside the gump */
-        .quick-links-header {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            padding: 20px 0 10px 0;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: 'Times New Roman', serif;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-
+        /* Quick Links - Simple list style */
         .quick-links {
             list-style: none;
-            position: relative;
-            z-index: 2;
             margin: 0;
-            padding: 10px 25px 30px 25px;
+            padding: 0;
         }
 
         .quick-links li {
@@ -784,19 +663,16 @@
             <div class="sidebar-widget">
                 <div class="widget-header">Quick Links</div>
                 <div class="widget-content">
-                    <div class="quick-links-scroll">
-                        <div class="scroll-middle"></div>
-                        <ul class="quick-links">
-                            <li><a href="https://github.com/UnknownUO/UO-NR-Launcher/archive/refs/heads/main.zip"><div class="quick-link-button"></div><span>Download Game</span></a></li>
-                            <li><a href="/character-creation/"><div class="quick-link-button"></div><span>Character Creation</span></a></li>
-                            <li><a href="/bestiary/"><div class="quick-link-button"></div><span>Bestiary</span></a></li>
-                            <li><a href="/skills/"><div class="quick-link-button"></div><span>Skills Guide</span></a></li>
-                            <li><a href="/pvp/"><div class="quick-link-button"></div><span>PvP Guide</span></a></li>
-                            <li><a href="/crafting/"><div class="quick-link-button"></div><span>Crafting Guide</span></a></li>
-                            <li><a href="/cities/"><div class="quick-link-button"></div><span>Cities & Towns</span></a></li>
-                            <li><a href="/dungeons/"><div class="quick-link-button"></div><span>Dungeons</span></a></li>
-                        </ul>
-                    </div>
+                    <ul class="quick-links">
+                        <li><a href="https://github.com/UnknownUO/UO-NR-Launcher/archive/refs/heads/main.zip"><div class="quick-link-button"></div><span>Download Game</span></a></li>
+                        <li><a href="/character-creation/"><div class="quick-link-button"></div><span>Character Creation</span></a></li>
+                        <li><a href="/bestiary/"><div class="quick-link-button"></div><span>Bestiary</span></a></li>
+                        <li><a href="/skills/"><div class="quick-link-button"></div><span>Skills Guide</span></a></li>
+                        <li><a href="/pvp/"><div class="quick-link-button"></div><span>PvP Guide</span></a></li>
+                        <li><a href="/crafting/"><div class="quick-link-button"></div><span>Crafting Guide</span></a></li>
+                        <li><a href="/cities/"><div class="quick-link-button"></div><span>Cities & Towns</span></a></li>
+                        <li><a href="/dungeons/"><div class="quick-link-button"></div><span>Dungeons</span></a></li>
+                    </ul>
                 </div>
             </div>
 
