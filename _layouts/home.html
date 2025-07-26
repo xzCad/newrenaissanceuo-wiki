@@ -513,50 +513,47 @@
             padding: 1.5rem;
         }
 
-        /* Quick Links Widget - Scroll Style */
+/* Quick Links Widget - Gump Style */
         .quick-links-scroll {
             position: relative;
             min-height: 500px;
-            background-color: transparent;
+            background: url('/assets/images/gump200.png') center center;
+            background-size: cover;
             padding: 0;
             margin: 0;
         }
 
+        /* Gump border pieces using your gump 200-207 images */
         .quick-links-scroll::before {
             content: '';
             position: absolute;
-            top: -1px;
-            left: -2;
-            right: -2;
-            height: 52px;
-            background: url('/assets/images/scroll-top.png') center top no-repeat;
-            background-size: calc(100% + 4px) 100%;
-            z-index: 1;
-        }
-
-        .quick-links-scroll::after {
-            content: '';
-            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
             bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50px;
-            background: url('/assets/images/scroll-bottom.png') center bottom no-repeat;
-            background-size: 100% 100%;
+            background: 
+                url('/assets/images/gump206.png') top left no-repeat,
+                url('/assets/images/gump201.png') top center repeat-x,
+                url('/assets/images/gump207.png') top right no-repeat,
+                url('/assets/images/gump203.png') center right repeat-y,
+                url('/assets/images/gump205.png') bottom right no-repeat,
+                url('/assets/images/gump204.png') bottom left no-repeat,
+                url('/assets/images/gump202.png') center left repeat-y;
+            background-size: 
+                auto auto,
+                auto auto,
+                auto auto,
+                auto auto,
+                auto auto,
+                auto auto,
+                auto auto;
             z-index: 1;
+            pointer-events: none;
         }
 
+        /* Remove the dark interior since gump200 is the background */
         .scroll-middle {
-            position: absolute;
-            top: 51px;
-            bottom: 50px;
-            left: 0;
-            right: 0;
-            background: 
-                url('/assets/images/scroll-middle-1.png') center repeat-y,
-                url('/assets/images/scroll-middle-2.png') center repeat-y;
-            background-size: 100% auto, 100% auto;
-            z-index: 0;
+            display: none;
         }
 
         .quick-links {
@@ -564,40 +561,36 @@
             position: relative;
             z-index: 2;
             margin: 0;
-            padding: 70px 30px 70px 30px;
+            padding: 30px 25px;
         }
 
         .quick-links li {
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .quick-links a {
-            color: #2C1810;
+            color: var(--text-primary);
             text-decoration: none;
             padding: 0.75rem 1rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            background: rgba(245, 235, 215, 0.1);
-            border: 1px solid rgba(139, 69, 19, 0.2);
+            transition: all 0.2s ease;
+            background: transparent;
+            border: none;
             font-weight: 600;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
             font-family: 'Times New Roman', serif;
         }
 
         .quick-links a:hover {
-            background: rgba(184, 134, 11, 0.2);
-            border-color: var(--accent-color);
             transform: translateX(3px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         .quick-link-button {
             width: 24px;
             height: 24px;
-            background-image: url('/assets/images/button-1.png');
+            background-image: url('/assets/images/gump210.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -606,7 +599,7 @@
         }
 
         .quick-links a:hover .quick-link-button {
-            background-image: url('/assets/images/button-1-clicked.png');
+            background-image: url('/assets/images/gump211.png');
         }
 
         /* Discord Widget */
