@@ -513,7 +513,7 @@
             padding: 1.5rem;
         }
 
-        /* Quick Links Widget - Gump Style */
+/* Quick Links Widget - Gump Style */
         .quick-links-scroll {
             position: relative;
             min-height: 500px;
@@ -549,10 +549,10 @@
         .quick-links-scroll::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
             background: 
                 url('/assets/images/gump201.png') top center repeat-x,
                 url('/assets/images/gump203.png') center right repeat-y,
@@ -561,9 +561,6 @@
                 auto auto,
                 auto auto,
                 auto auto;
-            /* Clip the edges to not overlap corners */
-            background-clip: content-box;
-            padding: 16px 16px 16px 16px; /* Adjust based on your corner image sizes */
             z-index: 0;
             pointer-events: none;
         }
