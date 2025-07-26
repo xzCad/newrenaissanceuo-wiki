@@ -513,7 +513,7 @@
             padding: 1.5rem;
         }
 
-/* Quick Links Widget - Gump Style */
+        /* Quick Links Widget - Gump Style */
         .quick-links-scroll {
             position: relative;
             min-height: 500px;
@@ -523,7 +523,7 @@
             margin: 0;
         }
 
-        /* Gump border pieces using your gump 200-207 images */
+        /* Gump border pieces - fixed positioning to prevent overlap */
         .quick-links-scroll::before {
             content: '';
             position: absolute;
@@ -533,21 +533,38 @@
             bottom: 0;
             background: 
                 url('/assets/images/gump206.png') top left no-repeat,
-                url('/assets/images/gump201.png') top center repeat-x,
                 url('/assets/images/gump207.png') top right no-repeat,
-                url('/assets/images/gump203.png') center right repeat-y,
-                url('/assets/images/gump205.png') bottom right no-repeat,
                 url('/assets/images/gump204.png') bottom left no-repeat,
-                url('/assets/images/gump202.png') center left repeat-y;
+                url('/assets/images/gump205.png') bottom right no-repeat;
             background-size: 
-                auto auto,
-                auto auto,
-                auto auto,
                 auto auto,
                 auto auto,
                 auto auto,
                 auto auto;
             z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Separate element for edges to avoid corner overlap */
+        .quick-links-scroll::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url('/assets/images/gump201.png') top center repeat-x,
+                url('/assets/images/gump203.png') center right repeat-y,
+                url('/assets/images/gump202.png') center left repeat-y;
+            background-size: 
+                auto auto,
+                auto auto,
+                auto auto;
+            /* Clip the edges to not overlap corners */
+            background-clip: content-box;
+            padding: 16px 16px 16px 16px; /* Adjust based on your corner image sizes */
+            z-index: 0;
             pointer-events: none;
         }
 
