@@ -516,11 +516,12 @@
 /* Quick Links Widget - Gump Style */
         .quick-links-scroll {
             position: relative;
-            min-height: 500px;
+            width: 300px;
+            height: 500px;
             background: url('/assets/images/gump200.png') center center no-repeat;
-            background-size: auto;
+            background-size: contain;
             padding: 0;
-            margin: 0;
+            margin: 0 auto;
         }
 
         /* Gump border pieces - fixed positioning to prevent overlap */
@@ -570,12 +571,27 @@
             display: none;
         }
 
+        /* Quick Links header inside the gump */
+        .quick-links-header {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 20px 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Times New Roman', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
         .quick-links {
             list-style: none;
             position: relative;
             z-index: 2;
             margin: 0;
-            padding: 30px 25px;
+            padding: 10px 25px 30px 25px;
         }
 
         .quick-links li {
