@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestiary - New Renaissance</title>
+    <style>
+        /* Using the same styling from your home page */
+        :root {
+            --primary-color: #6B2C15;
+            --secondary-color: #8B4513;
+            --accent-color: #B8860B;
+            --dark-bg: #0D0D0D;
+            --surface-color: #1A1A1A;
+            --border-color: #3A3A3A;
+            --text-primary: #E6D5B7;
+            --text-secondary: #C4B998;
+            --success-color: #228B22;
+            --warning-color: #FF6347;
+            --danger-color: #8B0000;
+            --magic-color: #9370DB;
+            --stone-color: #696969;
+            --uo-font-main: 'Times New Roman', 'Georgia', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--uo-font-main);
+            background: 
+                linear-gradient(rgba(13, 13, 13, 0.85), rgba(13, 13, 13, 0.90)),
+                radial-gradient(circle at 30% 70%, rgba(107, 44, 21, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(139, 69, 19, 0.2) 0%, transparent 50%);
+            background-size: cover, 400px 400px, 300px 300px;
+            background-attachment: fixed, scroll, scroll;
+            color: var(--text-primary);
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-bottom: 4px solid var(--accent-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+            padding: 1.5rem 2rem;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-section h1 {
+            font-size: 2rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+            color: var(--accent-color);
+        }
+
+        .back-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 6px;
+            background: rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            background: var(--accent-color);
+            color: var(--dark-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(58, 58, 58, 0.8));
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem;
+            font-size: 1.1rem;
+            background: var(--surface-color);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--uo-font-main);
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 10px rgba(184, 134, 11, 0.3);
+        }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            background: var(--surface-color);
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--uo-font-main);
+            font-weight: bold;
+        }
+
+        .tab-button:hover,
+        .tab-button.active {
+            background: var(--accent-color);
+            color: var(--dark-bg);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+        }
+
+        /* Bestiary Grid */
+        .bestiary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .creature-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(58, 58, 58, 0.9));
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .creature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(184, 134, 11, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .creature-card:hover::before {
+            left: 100%;
+        }
+
+        .creature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        .creature-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .creature-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 0;
+        }
+
+        .creature-type {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: var(--accent-color);
+            color: var(--dark-bg);
+        }
+
+        .creature-info {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .creature-location {
+            color: var(--text-primary);
+            font-style: italic;
+        }
+
+        .creature-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.85rem;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+        }
+
+        .stat-value {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .creature-resistances {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .resistance-title {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .resistance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.25rem;
+            font-size: 0.8rem;
+        }
+
+        .resistance-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .resistance-label {
+            color: var(--text-secondary);
+        }
+
+        .resistance-value {
+            color: var(--text-primary);
+            font-weight: bold;
+        }
+
+        /* Alphabetical List View */
+        .alphabetical-list {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .letter-section {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(58, 58, 58, 0.9));
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .letter-header {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .creature-list {
+            list-style: none;
+        }
+
+        .creature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+        }
+
+        .creature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .creature-list a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .creature-list a:hover {
+            color: var(--accent-color);
+        }
+
+        /* View Toggle */
+        .view-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .view-button {
+            padding: 0.75rem 1.5rem;
+            background: var(--surface-color);
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--uo-font-main);
+            font-weight: bold;
+        }
+
+        .view-button:hover,
+        .view-button.active {
+            background: var(--accent-color);
+            color: var(--dark-bg);
+            border-color: var(--accent-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .page-title h1 {
+                font-size: 2rem;
+            }
+
+            .bestiary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .alphabetical-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>New Renaissance Bestiary</h1>
+            </div>
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Page Title -->
+        <div class="page-title">
+            <h1>Creatures of Britannia</h1>
+            <p>Discover the monsters, creatures, and beings that inhabit the realm</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" class="search-box" id="creatureSearch" placeholder="Search for creatures..." onkeyup="filterCreatures()">
+        </div>
+
+        <!-- View Toggle -->
+        <div class="view-toggle">
+            <button class="view-button active" onclick="showGridView()">Grid View</button>
+            <button class="view-button" onclick="showListView()">Alphabetical List</button>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+            <button class="tab-button active" data-category="all" onclick="filterByCategory('all')">All Creatures</button>
+            <button class="tab-button" data-category="animals" onclick="filterByCategory('animals')">Animals</button>
+            <button class="tab-button" data-category="undead" onclick="filterByCategory('undead')">Undead</button>
+            <button class="tab-button" data-category="elementals" onclick="filterByCategory('elementals')">Elementals</button>
+            <button class="tab-button" data-category="demons" onclick="filterByCategory('demons')">Demons</button>
+            <button class="tab-button" data-category="dragons" onclick="filterByCategory('dragons')">Dragons</button>
+            <button class="tab-button" data-category="humanoids" onclick="filterByCategory('humanoids')">Humanoids</button>
+            <button class="tab-button" data-category="bosses" onclick="filterByCategory('bosses')">Bosses</button>
+        </div>
+
+        <!-- Bestiary Grid View -->
+        <div class="bestiary-grid" id="bestiaryGrid">
+            <!-- Example creature cards based on your ServUO code -->
+            <div class="creature-card" data-category="elementals" data-name="Air Elemental">
+                <div class="creature-header">
+                    <h3 class="creature-name">Air Elemental</h3>
+                    <span class="creature-type">Elemental</span>
+                </div>
+                <div class="creature-info">A being of pure wind and storm energy</div>
+                <div class="creature-location">Found in: Various dungeons</div>
+                <div class="creature-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">HP:</span>
+                        <span class="stat-value">76-93</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Str:</span>
+                        <span class="stat-value">126-155</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Dex:</span>
+                        <span class="stat-value">166-185</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Int:</span>
+                        <span class="stat-value">101-125</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Fame:</span>
+                        <span class="stat-value">4500</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Karma:</span>
+                        <span class="stat-value">-4500</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Damage:</span>
+                        <span class="stat-value">8-10</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">AR:</span>
+                        <span class="stat-value">40</span>
+                    </div>
+                </div>
+                <div class="creature-resistances">
+                    <div class="resistance-title">Resistances</div>
+                    <div class="resistance-grid">
+                        <div class="resistance-item">
+                            <span class="resistance-label">Physical:</span>
+                            <span class="resistance-value">35-45</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Fire:</span>
+                            <span class="resistance-value">15-25</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Cold:</span>
+                            <span class="resistance-value">10-20</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Poison:</span>
+                            <span class="resistance-value">10-20</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Energy:</span>
+                            <span class="resistance-value">25-35</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Template for other creatures - replace with your actual mobiles -->
+            <div class="creature-card" data-category="undead" data-name="Ancient Lich">
+                <div class="creature-header">
+                    <h3 class="creature-name">Ancient Lich</h3>
+                    <span class="creature-type">Undead</span>
+                </div>
+                <div class="creature-info">Powerful undead spellcaster</div>
+                <div class="creature-location">Found in: Deceit Dungeon</div>
+                <div class="creature-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">HP:</span>
+                        <span class="stat-value">4000-5000</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Str:</span>
+                        <span class="stat-value">416-505</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Dex:</span>
+                        <span class="stat-value">146-165</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Int:</span>
+                        <span class="stat-value">566-645</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Fame:</span>
+                        <span class="stat-value">18000</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Karma:</span>
+                        <span class="stat-value">-18000</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Damage:</span>
+                        <span class="stat-value">11-13</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">AR:</span>
+                        <span class="stat-value">50</span>
+                    </div>
+                </div>
+                <div class="creature-resistances">
+                    <div class="resistance-title">Resistances</div>
+                    <div class="resistance-grid">
+                        <div class="resistance-item">
+                            <span class="resistance-label">Physical:</span>
+                            <span class="resistance-value">60-70</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Fire:</span>
+                            <span class="resistance-value">60-70</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Cold:</span>
+                            <span class="resistance-value">90-100</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Poison:</span>
+                            <span class="resistance-value">90-100</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Energy:</span>
+                            <span class="resistance-value">60-70</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="creature-card" data-category="dragons" data-name="Ancient Wyrm">
+                <div class="creature-header">
+                    <h3 class="creature-name">Ancient Wyrm</h3>
+                    <span class="creature-type">Dragon</span>
+                </div>
+                <div class="creature-info">Eldest of dragonkind</div>
+                <div class="creature-location">Found in: Destard Dungeon</div>
+                <div class="creature-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">HP:</span>
+                        <span class="stat-value">5000-6000</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Str:</span>
+                        <span class="stat-value">796-825</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Dex:</span>
+                        <span class="stat-value">86-105</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Int:</span>
+                        <span class="stat-value">436-475</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Fame:</span>
+                        <span class="stat-value">22500</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Karma:</span>
+                        <span class="stat-value">-22500</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Damage:</span>
+                        <span class="stat-value">16-22</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">AR:</span>
+                        <span class="stat-value">100</span>
+                    </div>
+                </div>
+                <div class="creature-resistances">
+                    <div class="resistance-title">Resistances</div>
+                    <div class="resistance-grid">
+                        <div class="resistance-item">
+                            <span class="resistance-label">Physical:</span>
+                            <span class="resistance-value">75-85</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Fire:</span>
+                            <span class="resistance-value">80-90</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Cold:</span>
+                            <span class="resistance-value">70-80</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Poison:</span>
+                            <span class="resistance-value">60-70</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Energy:</span>
+                            <span class="resistance-value">80-90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="creature-card" data-category="animals" data-name="Bear">
+                <div class="creature-header">
+                    <h3 class="creature-name">Bear</h3>
+                    <span class="creature-type">Animal</span>
+                </div>
+                <div class="creature-info">Large forest predator</div>
+                <div class="creature-location">Found in: Forests, mountains</div>
+                <div class="creature-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">HP:</span>
+                        <span class="stat-value">76-100</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Str:</span>
+                        <span class="stat-value">76-100</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Dex:</span>
+                        <span class="stat-value">56-75</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Int:</span>
+                        <span class="stat-value">11-20</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Fame:</span>
+                        <span class="stat-value">1000</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Karma:</span>
+                        <span class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Damage:</span>
+                        <span class="stat-value">7-12</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Taming:</span>
+                        <span class="stat-value">83.1</span>
+                    </div>
+                </div>
+                <div class="creature-resistances">
+                    <div class="resistance-title">Resistances</div>
+                    <div class="resistance-grid">
+                        <div class="resistance-item">
+                            <span class="resistance-label">Physical:</span>
+                            <span class="resistance-value">25-30</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Fire:</span>
+                            <span class="resistance-value">10-20</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Cold:</span>
+                            <span class="resistance-value">20-25</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Poison:</span>
+                            <span class="resistance-value">10-15</span>
+                        </div>
+                        <div class="resistance-item">
+                            <span class="resistance-label">Energy:</span>
+                            <span class="resistance-value">10-15</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alphabetical List View -->
+        <div class="alphabetical-list" id="alphabeticalList">
+            <div class="letter-section">
+                <div class="letter-header">A</div>
+                <ul class="creature-list">
+                    <li><a href="/bestiary/air-elemental/">Air Elemental</a></li>
+                    <li><a href="/bestiary/ancient-lich/">Ancient Lich</a></li>
+                    <li><a href="/bestiary/ancient-wyrm/">Ancient Wyrm</a></li>
+                    <!-- Add more A creatures -->
+                </ul>
+            </div>
+
+            <div class="letter-section">
+                <div class="letter-header">B</div>
+                <ul class="creature-list">
+                    <li><a href="/bestiary/bear/">Bear</a></li>
+                    <li><a href="/bestiary/black-bear/">Black Bear</a></li>
+                    <!-- Add more B creatures -->
+                </ul>
+            </div>
+
+            <!-- Add more letter sections as needed -->
+        </div>
+    </div>
+
+    <script>
+        function filterCreatures() {
+            const searchTerm = document.getElementById('creatureSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.creature-card');
+            
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                if (name.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function filterByCategory(category) {
+            const cards = document.querySelectorAll('.creature-card');
+            const tabs = document.querySelectorAll('.tab-button');
+            
+            // Update active tab
+            tabs.forEach(tab => tab.classList.remove('active'));
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function showGridView() {
+            document.getElementById('bestiaryGrid').style.display = 'grid';
+            document.getElementById('alphabeticalList').style.display = 'none';
+            
+            document.querySelectorAll('.view-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function showListView() {
+            document.getElementById('bestiaryGrid').style.display = 'none';
+            document.getElementById('alphabeticalList').style.display = 'grid';
+            
+            document.querySelectorAll('.view-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
