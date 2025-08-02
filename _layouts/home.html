@@ -5,25 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Renaissance - A Renaissance Era Ultima Online Shard</title>
     <style>
-        /* Enhanced Medieval Font Stack - No extraction needed! */
-        :root {
-            --primary-color: #6B2C15;
-            --secondary-color: #8B4513;
-            --accent-color: #B8860B;
-            --dark-bg: #0D0D0D;
-            --surface-color: #1A1A1A;
-            --border-color: #3A3A3A;
-            --text-primary: #E6D5B7;
-            --text-secondary: #C4B998;
-            --success-color: #228B22;
-            --warning-color: #FF6347;
-            --danger-color: #8B0000;
-            --magic-color: #9370DB;
-            --stone-color: #696969;
-            --uo-font-main: 'Times New Roman', 'Georgia', serif;
-            --uo-font-title: 'Trajan Pro', 'Times New Roman', serif;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -31,535 +12,515 @@
         }
 
         body {
-            font-family: var(--uo-font-main);
-            background: 
-                linear-gradient(rgba(13, 13, 13, 0.85), rgba(13, 13, 13, 0.90)),
-                url('/assets/images/uo-background.jpg') center center,
-                radial-gradient(circle at 30% 70%, rgba(107, 44, 21, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(139, 69, 19, 0.2) 0%, transparent 50%);
-            background-size: cover, cover, 400px 400px, 300px 300px;
-            background-attachment: fixed, fixed, scroll, scroll;
-            color: var(--text-primary);
+            font-family: 'Times New Roman', serif;
+            background: url('/assets/images/uo-background.jpg') center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #E6D5B7;
             line-height: 1.6;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Header Section */
-        .header {
-            background: 
-                linear-gradient(135deg, var(--primary-color), var(--secondary-color)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><rect width="100" height="50" fill="none"/><path d="M0,25 Q25,10 50,25 T100,25" stroke="rgba(184,134,11,0.3)" stroke-width="2" fill="none"/><path d="M0,35 Q25,20 50,35 T100,35" stroke="rgba(184,134,11,0.2)" stroke-width="1" fill="none"/></svg>');
-            border-bottom: 4px solid var(--accent-color);
-            box-shadow: 
-                0 4px 12px rgba(0,0,0,0.7),
-                inset 0 1px 0 rgba(184,134,11,0.3);
-            position: relative;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
+        /* Decorative Pillars */
+        .pillar-left, .pillar-right {
+            position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(90deg, 
-                    transparent 0%, 
-                    rgba(184,134,11,0.1) 25%, 
-                    rgba(184,134,11,0.2) 50%, 
-                    rgba(184,134,11,0.1) 75%, 
-                    transparent 100%);
-            pointer-events: none;
+            width: 60px;
+            height: 100vh;
+            background: url('/assets/images/stone border.png') repeat-y;
+            background-size: 60px auto;
+            z-index: 1;
         }
 
-        .header-top {
+        .pillar-left {
+            left: 0;
+        }
+
+        .pillar-right {
+            right: 0;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1000px;
+            background: linear-gradient(135deg, #6B2C15, #8B4513);
+            border-bottom: 4px solid #B8860B;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+            z-index: 10;
+            padding: 1rem 2rem;
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            width: 100%;
         }
 
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .logo-section img {
-            width: 70px;
+            width: 40px;
             height: auto;
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
         }
 
         .logo-text h1 {
-            font-size: 2.5rem;
+            font-size: 1.6rem;
             margin: 0;
-            text-shadow: 
-                2px 2px 4px rgba(0,0,0,0.9),
-                0 0 10px rgba(184,134,11,0.3);
-            font-family: 'Times New Roman', serif;
-            font-weight: bold;
-            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+            color: #E6D5B7;
         }
 
         .logo-text p {
-            font-size: 1rem;
+            font-size: 0.8rem;
             opacity: 0.9;
             margin: 0;
             font-style: italic;
-            color: var(--text-secondary);
+            color: #C4B998;
         }
 
         .header-actions {
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             align-items: center;
         }
 
         .btn-header {
-            padding: 1rem 2rem;
+            padding: 0.5rem 1rem;
             border: 2px solid;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: bold;
             text-decoration: none;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-family: 'Times New Roman', serif;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-header:hover::before {
-            left: 100%;
         }
 
         .btn-download {
-            background: linear-gradient(135deg, var(--success-color), #32CD32);
+            background: linear-gradient(135deg, #228B22, #32CD32);
             color: white;
             border-color: #90EE90;
-            box-shadow: 
-                0 4px 12px rgba(34, 139, 34, 0.4),
-                inset 0 1px 0 rgba(255,255,255,0.2);
         }
 
         .btn-download:hover {
-            background: linear-gradient(135deg, #32CD32, var(--success-color));
+            background: linear-gradient(135deg, #32CD32, #228B22);
             transform: translateY(-2px);
-            box-shadow: 
-                0 6px 20px rgba(34, 139, 34, 0.6),
-                inset 0 1px 0 rgba(255,255,255,0.3);
         }
 
         .btn-discord {
             background: linear-gradient(135deg, #4B0082, #663399);
             color: white;
             border-color: #9370DB;
-            box-shadow: 
-                0 4px 12px rgba(75, 0, 130, 0.4),
-                inset 0 1px 0 rgba(255,255,255,0.2);
         }
 
         .btn-discord:hover {
             background: linear-gradient(135deg, #663399, #4B0082);
             transform: translateY(-2px);
-            box-shadow: 
-                0 6px 20px rgba(75, 0, 130, 0.6),
-                inset 0 1px 0 rgba(255,255,255,0.3);
         }
 
-        /* Navigation */
-        .navigation {
-            background: 
-                linear-gradient(135deg, rgba(0,0,0,0.6), rgba(26,26,26,0.8)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="20"><rect width="40" height="20" fill="none"/><rect x="0" y="8" width="40" height="4" fill="rgba(184,134,11,0.1)"/></svg>');
-            padding: 1rem 0;
-            border-top: 1px solid rgba(184,134,11,0.3);
-            border-bottom: 1px solid rgba(184,134,11,0.3);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 0.5rem;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-menu a {
-            color: var(--text-primary);
-            text-decoration: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            font-family: 'Times New Roman', serif;
-            border: 2px solid transparent;
-            position: relative;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
-            color: var(--dark-bg);
-            border-color: var(--accent-color);
-            box-shadow: 
-                0 4px 12px rgba(184,134,11,0.3),
-                inset 0 1px 0 rgba(255,255,255,0.2);
-            transform: translateY(-2px);
-        }
-
-        /* Main Layout */
-        .main-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 2rem;
-        }
-
-        /* Content Area - Simplified */
-        .content-area {
-            background: #1a1a1a;
-            border-radius: 8px;
-            border: 2px solid var(--accent-color);
-            overflow: visible;
-            box-shadow: 
-                0 8px 24px rgba(0,0,0,0.8),
-                inset 0 0 20px rgba(139,69,19,0.2);
-            position: relative;
-        }
-
-        /* Sidebar Widgets - Simplified */
-        .sidebar-widget {
-            background: #1a1a1a;
-            border-radius: 8px;
-            border: 2px solid var(--border-color);
-            overflow: visible;
-            box-shadow: 
-                0 6px 18px rgba(0,0,0,0.6),
-                inset 0 0 15px rgba(139,69,19,0.15);
-            margin-bottom: 1.5rem;
-        }
-
-        /* News Items - Simplified */
-        .news-item {
-            background: linear-gradient(135deg, rgba(13, 13, 13, 0.85), rgba(26, 26, 26, 0.90));
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border: 2px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .news-item:hover {
-            transform: translateX(5px);
-            box-shadow: 
-                0 6px 20px rgba(0,0,0,0.5),
-                inset 0 0 15px rgba(184,134,11,0.2);
-        }
-
-        /* Widget Headers - Simplified */
-        .widget-header {
-            background: 
-                linear-gradient(135deg, var(--primary-color), var(--secondary-color)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20"><rect width="30" height="20" fill="none"/><rect x="0" y="8" width="30" height="4" fill="rgba(184,134,11,0.2)"/></svg>');
-            color: var(--text-primary);
-            padding: 1.25rem;
-            font-weight: bold;
-            font-size: 1.2rem;
+        /* Player Count */
+        .player-count {
             text-align: center;
-            font-family: 'Times New Roman', serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            border-bottom: 2px solid var(--accent-color);
-            border-radius: 8px 8px 0 0;
-        }
-
-        /* Banner Section with Britannia Background */
-        .banner-section {
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-                url('/assets/images/wtb_map.png') center center;
-            background-size: auto, cover;
-            background-position: center, center;
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 2px solid var(--accent-color);
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .banner-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(184,134,11,0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139,69,19,0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .banner-content {
-            position: relative;
-            z-index: 2;
-            background: transparent;
-            padding: 2rem;
-            border-radius: 12px;
-        }
-
-        .banner-title {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 
-                3px 3px 6px rgba(0,0,0,0.9),
-                0 0 20px rgba(184,134,11,0.5),
-                2px 2px 4px rgba(0,0,0,1);
-            font-family: 'Times New Roman', serif;
+            color: #B8860B;
             font-weight: bold;
-            letter-spacing: 2px;
-            color: #ffffff;
-        }
-
-        .banner-subtitle {
-            font-size: 1.4rem;
-            opacity: 0.95;
-            margin-bottom: 2rem;
-            font-style: italic;
-            color: var(--text-primary);
-            text-shadow: 
-                2px 2px 4px rgba(0,0,0,0.9),
-                1px 1px 2px rgba(0,0,0,1);
-        }
-
-        .banner-image {
-            max-width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 
-                0 8px 24px rgba(0,0,0,0.7),
-                0 0 0 3px var(--accent-color);
-            border: 2px solid var(--stone-color);
-        }
-
-        /* News/Announcements */
-        .news-section {
-            padding: 2rem;
-        }
-
-        .news-header {
-            display: flex;
-            justify-content: between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .news-title {
-            color: var(--accent-color);
-            font-size: 1.8rem;
-            margin: 0;
-        }
-
-        .news-item {
-            background: linear-gradient(135deg, rgba(13, 13, 13, 0.85), rgba(26, 26, 26, 0.90));
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border: 2px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .news-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.2);
-            border-radius: 8px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .news-item:hover::before {
-            opacity: 1;
-        }
-
-        .news-item:hover {
-            transform: translateX(8px);
-            box-shadow: 
-                0 6px 20px rgba(0,0,0,0.4),
-                inset 0 0 15px rgba(184,134,11,0.1);
-        }
-
-        .news-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .news-item-title {
-            color: var(--accent-color);
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .news-item-date {
-            color: var(--text-secondary);
+            margin-bottom: 1rem;
             font-size: 0.9rem;
         }
 
-        .news-item-content {
-            line-height: 1.6;
+        /* Main Layout */
+        .main-layout {
+            margin-top: 100px;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            min-height: calc(100vh - 100px);
         }
 
-        /* Sidebar */
+        .content-wrapper {
+            display: flex;
+            gap: 2rem;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* Left Sidebar */
         .sidebar {
+            width: 280px;
+            flex-shrink: 0;
+        }
+
+        .nav-section {
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: visible;
+        }
+
+        /* Create 9-piece border using your UI elements */
+        .nav-section::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: 
+                url('/assets/images/top left.png') top left no-repeat,
+                url('/assets/images/top middle.png') top center repeat-x,
+                url('/assets/images/top right.png') top right no-repeat,
+                url('/assets/images/middle left.png') center left repeat-y,
+                url('/assets/images/middle right.png') center right repeat-y,
+                url('/assets/images/bottom left.png') bottom left no-repeat,
+                url('/assets/images/bottom middle.png') bottom center repeat-x,
+                url('/assets/images/bottom right.png') bottom right no-repeat;
+            background-size: 
+                15px 15px, auto 15px, 15px 15px,
+                15px auto, 15px auto,
+                15px 15px, auto 15px, 15px 15px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .nav-section-inner {
+            background: 
+                url('/assets/images/middle.png') center center,
+                linear-gradient(135deg, rgba(13, 13, 13, 0.95), rgba(26, 26, 26, 0.95));
+            background-size: auto, cover;
+            overflow: hidden;
+        }
+
+        .nav-section-header {
+            background: linear-gradient(135deg, #6B2C15, #8B4513);
+            padding: 0.75rem 1rem;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #E6D5B7;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            border-bottom: 2px solid #B8860B;
+        }
+
+        .nav-links {
+            padding: 0.75rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #E6D5B7;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.4rem 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            border-radius: 3px;
+        }
+
+        .nav-item:hover {
+            color: #B8860B;
+            background: rgba(184, 134, 11, 0.1);
+            padding-left: 0.75rem;
+        }
+
+        .nav-item-icon {
+            width: 16px;
+            height: 16px;
+            background: url('/assets/images/gump210.png') center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .nav-item:hover .nav-item-icon {
+            background-image: url('/assets/images/gump211.png');
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
 
-        .widget-content {
-            padding: 1.5rem;
+        /* Welcome Section */
+        .welcome-section {
+            position: relative;
+            overflow: visible;
         }
 
-        /* Quick Links - Simple list style */
-        .quick-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: 
+                url('/assets/images/top left.png') top left no-repeat,
+                url('/assets/images/top middle.png') top center repeat-x,
+                url('/assets/images/top right.png') top right no-repeat,
+                url('/assets/images/middle left.png') center left repeat-y,
+                url('/assets/images/middle right.png') center right repeat-y,
+                url('/assets/images/bottom left.png') bottom left no-repeat,
+                url('/assets/images/bottom middle.png') bottom center repeat-x,
+                url('/assets/images/bottom right.png') bottom right no-repeat;
+            background-size: 
+                20px 20px, auto 20px, 20px 20px,
+                20px auto, 20px auto,
+                20px 20px, auto 20px, 20px 20px;
+            pointer-events: none;
+            z-index: -1;
         }
 
-        .quick-links li {
-            margin-bottom: 0.75rem;
-        }
-
-        .quick-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            padding: 0.75rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: transparent;
-            border: none;
-            font-weight: 600;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-            font-family: 'Times New Roman', serif;
-        }
-
-        .quick-link-button {
-            width: 24px;
-            height: 24px;
-            background-image: url('/assets/images/gump210.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            transition: background-image 0.2s ease;
-            flex-shrink: 0;
-        }
-
-        .quick-links a:hover .quick-link-button {
-            background-image: url('/assets/images/gump211.png');
-        }
-
-        /* Discord Widget */
-        .discord-widget {
+        .welcome-inner {
+            background: 
+                url('/assets/images/middle.png') center center,
+                linear-gradient(135deg, rgba(222, 184, 135, 0.95), rgba(245, 222, 179, 0.95));
+            background-size: auto, cover;
+            padding: 2rem;
             text-align: center;
         }
 
-        .discord-invite {
-            background: #5865F2;
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            text-decoration: none;
-            display: block;
+        .welcome-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #8B4513;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             font-weight: bold;
-            transition: all 0.3s ease;
         }
 
-        .discord-invite:hover {
-            background: #4752C4;
-            transform: translateY(-2px);
+        .welcome-subtitle {
+            font-size: 1.1rem;
+            color: #654321;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .welcome-description {
+            font-size: 0.95rem;
+            color: #654321;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* News Section */
+        .news-section {
+            position: relative;
+            overflow: visible;
+        }
+
+        .news-section::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: 
+                url('/assets/images/top left.png') top left no-repeat,
+                url('/assets/images/top middle.png') top center repeat-x,
+                url('/assets/images/top right.png') top right no-repeat,
+                url('/assets/images/middle left.png') center left repeat-y,
+                url('/assets/images/middle right.png') center right repeat-y,
+                url('/assets/images/bottom left.png') bottom left no-repeat,
+                url('/assets/images/bottom middle.png') bottom center repeat-x,
+                url('/assets/images/bottom right.png') bottom right no-repeat;
+            background-size: 
+                20px 20px, auto 20px, 20px 20px,
+                20px auto, 20px auto,
+                20px 20px, auto 20px, 20px 20px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .news-inner {
+            background: 
+                url('/assets/images/middle.png') center center,
+                linear-gradient(135deg, rgba(222, 184, 135, 0.95), rgba(245, 222, 179, 0.95));
+            background-size: auto, cover;
+            overflow: hidden;
+        }
+
+        .news-header {
+            background: linear-gradient(135deg, #6B2C15, #8B4513);
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #B8860B;
+        }
+
+        .news-title {
+            color: #E6D5B7;
+            font-size: 1.4rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(139, 69, 19, 0.3);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .news-item-image {
+            width: 80px;
+            height: 80px;
+            background: rgba(139, 69, 19, 0.2);
+            border-radius: 4px;
+            flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .news-item-content {
+            flex: 1;
+        }
+
+        .news-item-header {
+            margin-bottom: 0.5rem;
+        }
+
+        .news-item-title {
+            color: #8B4513;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .news-item-meta {
+            color: #A0522D;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+
+        .news-item-description {
+            color: #654321;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .read-more {
+            color: #B8860B;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .header-top {
+        @media (max-width: 1200px) {
+            .pillar-left, .pillar-right {
+                display: none;
+            }
+
+            .header {
+                max-width: 900px;
+            }
+
+            .content-wrapper {
+                max-width: 900px;
+            }
+
+            .sidebar {
+                width: 280px;
+            }
+
+            .main-content {
+                width: 580px;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .header {
+                max-width: 100%;
+                left: 0;
+                right: 0;
+                transform: none;
+                padding: 1rem;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                max-width: 600px;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .main-content {
+                width: 100%;
+            }
+
+            .nav-section {
+                margin-bottom: 1.5rem;
+            }
+
+            .header-content {
                 flex-direction: column;
                 gap: 1rem;
                 text-align: center;
             }
 
-            .main-container {
-                grid-template-columns: 1fr;
-                padding: 1rem;
+            .welcome-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .news-item {
+                flex-direction: column;
             }
 
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1rem;
-            }
-
-            .banner-title {
-                font-size: 2rem;
-            }
-
-            .logo-text h1 {
-                font-size: 1.5rem;
+            .news-item-image {
+                width: 100%;
+                height: 120px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Decorative Pillars -->
+    <div class="pillar-left"></div>
+    <div class="pillar-right"></div>
+
     <!-- Header -->
     <header class="header">
-        <div class="header-top">
+        <div class="header-content">
             <div class="logo-section">
                 <img src="/assets/images/logo.png" alt="New Renaissance Logo">
                 <div class="logo-text">
@@ -573,135 +534,186 @@
                 <a href="https://discord.gg/aynT7Cv82d" class="btn-header btn-discord" target="_blank">Join Discord</a>
             </div>
         </div>
-
-        <nav class="navigation">
-            <div class="nav-container">
-                <ul class="nav-menu">
-                    <li><a href="/" class="active">Home</a></li>
-                    <li><a href="/bestiary/">Bestiary</a></li>
-                    <li><a href="/skills/">Skills</a></li>
-                    <li><a href="/pvp/">PvP</a></li>
-                    <li><a href="/crafting/">Crafting</a></li>
-                    <li><a href="/events/">Events</a></li>
-                    <li><a href="/factions/">Factions</a></li>
-                </ul>
-            </div>
-        </nav>
     </header>
 
-    <!-- Main Content -->
-    <div class="main-container">
-        <!-- Content Area -->
-        <main class="content-area">
-                <section class="banner-section">
-                <div class="banner-content">
-                    <h2 class="banner-title">Welcome to Britannia</h2>
-                    <p class="banner-subtitle">Experience custom Renaissance-era gameplay</p>
-                    <!-- Removed placeholder image since we're using background image -->
-                </div>
-            </section>
-
-            <!-- News/Announcements -->
-            <section class="news-section">
-                <div class="news-header">
-                    <h2 class="news-title">Latest News & Announcements</h2>
-                </div>
-
-                <article class="news-item">
-                    <div class="news-item-header">
-                        <h3 class="news-item-title">Server Patch Notes</h3>
-                        <span class="news-item-date">July 22, 2025</span>
-                    </div>
-                    <div class="news-item-content">
-                        <ul style="list-style-type: disc; padding-left: 1.5rem; line-height: 1.8;">
-                            <li>Magic item loot drops are all now equally spread out. Shields, armor, weapons, and ranged have same chance to drop</li>
-                            <li>Cut house customization cost by 40%</li>
-                            <li>New title hue deeds added to character service vendor</li>
-                            <li>Clothing Bless Deeds added to character service vendor</li>
-                            <li>Ogres, Ogre Lords, Corpsers, and Whipping Vines now drop seeds</li>
-                            <li>Treasure maps can be dug up by anyone holding decoded map</li>
-                            <li>Increase stable max followers</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="news-item">
-                    <div class="news-item-header">
-                        <h3 class="news-item-title">Monthly PvP Tournament</h3>
-                        <span class="news-item-date">January 18, 2025</span>
-                    </div>
-                    <div class="news-item-content">
-                        <p></p>
-                    </div>
-                </article>
-
-                <article class="news-item">
-                    <div class="news-item-header">
-                        <h3 class="news-item-title">New Player Welcome Event</h3>
-                        <span class="news-item-date">January 15, 2025</span>
-                    </div>
-                    <div class="news-item-content">
-                        <p></p>
-                    </div>
-                </article>
-
-                <article class="news-item">
-                    <div class="news-item-header">
-                        <h3 class="news-item-title">Housing Plot Availability</h3>
-                        <span class="news-item-date">January 12, 2025</span>
-                    </div>
-                    <div class="news-item-content">
-                        <p></p>
-                    </div>
-                </article>
-            </section>
-        </main>
-
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <!-- Quick Links Widget -->
-            <div class="sidebar-widget">
-                <div class="widget-header">Quick Links</div>
-                <div class="widget-content">
-                    <ul class="quick-links">
-                        <li><a href="https://github.com/UnknownUO/UO-NR-Launcher/archive/refs/heads/main.zip"><div class="quick-link-button"></div><span>Download Game</span></a></li>
-                        <li><a href="/character-creation/"><div class="quick-link-button"></div><span>Character Creation</span></a></li>
-                        <li><a href="/bestiary/"><div class="quick-link-button"></div><span>Bestiary</span></a></li>
-                        <li><a href="/skills/"><div class="quick-link-button"></div><span>Skills Guide</span></a></li>
-                        <li><a href="/pvp/"><div class="quick-link-button"></div><span>PvP Guide</span></a></li>
-                        <li><a href="/crafting/"><div class="quick-link-button"></div><span>Crafting Guide</span></a></li>
-                        <li><a href="/cities/"><div class="quick-link-button"></div><span>Cities & Towns</span></a></li>
-                        <li><a href="/dungeons/"><div class="quick-link-button"></div><span>Dungeons</span></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Discord Widget -->
-            <div class="sidebar-widget">
-                <div class="widget-header">Community</div>
-                <div class="widget-content discord-widget">
-                    <p style="margin-bottom: 1rem; color: var(--text-secondary);">Join our active community on Discord for real-time chat, events, and support!</p>
-                    <a href="https://discord.gg/aynT7Cv82d" class="discord-invite" target="_blank">
-                        💬 Join Discord Server
-                    </a>
-                </div>
-            </div>
-
-            <!-- Server Info Widget -->
-            <div class="sidebar-widget">
-                <div class="widget-header">Server Information</div>
-                <div class="widget-content">
-                    <div style="color: var(--text-secondary); line-height: 1.8;">
-                        <strong style="color: var(--accent-color);">Era:</strong> Renaissance<br>
-                        <strong style="color: var(--accent-color);">Skill Cap:</strong> 700 points<br>
-                        <strong style="color: var(--accent-color);">Stat Cap:</strong> 225 points<br>
-                        <strong style="color: var(--accent-color);">Facet:</strong> Felucca Only<br>
-                        <strong style="color: var(--accent-color);">PvP:</strong> Enabled<br>
-                        <strong style="color: var(--accent-color);">Factions:</strong> Classic System
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <div class="content-wrapper">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar">
+                <div class="player-count">There are currently 127 people playing!</div>
+                
+                <!-- Game Section -->
+                <div class="nav-section">
+                    <div class="nav-section-inner">
+                        <div class="nav-section-header">Game</div>
+                        <div class="nav-links">
+                            <a href="https://github.com/UnknownUO/UO-NR-Launcher/archive/refs/heads/main.zip" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Download Client</span>
+                            </a>
+                            <a href="/character-creation/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>World Select</span>
+                            </a>
+                            <a href="/bestiary/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>World Map</span>
+                            </a>
+                            <a href="/skills/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Skills Guide</span>
+                            </a>
+                            <a href="/news/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>News</span>
+                            </a>
+                            <a href="/status/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Status</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </aside>
+
+                <!-- Community Section -->
+                <div class="nav-section">
+                    <div class="nav-section-inner">
+                        <div class="nav-section-header">Community</div>
+                        <div class="nav-links">
+                            <a href="/polls/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Polls</span>
+                            </a>
+                            <a href="/forums/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Polling Charter</span>
+                            </a>
+                            <a href="/leaderboards/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>HiScores</span>
+                            </a>
+                            <a href="/roadmap/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Roadmap</span>
+                            </a>
+                            <a href="/grand-exchange/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Grand Exchange</span>
+                            </a>
+                            <a href="https://discord.gg/aynT7Cv82d" class="nav-item" target="_blank">
+                                <div class="nav-item-icon"></div>
+                                <span>Discord</span>
+                            </a>
+                            <a href="/merchandise/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Merchandise</span>
+                            </a>
+                            <a href="/wiki/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Wiki</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account Section -->
+                <div class="nav-section">
+                    <div class="nav-section-inner">
+                        <div class="nav-section-header">Account</div>
+                        <div class="nav-links">
+                            <a href="/login/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Become a Member</span>
+                            </a>
+                            <a href="/account/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Account Settings</span>
+                            </a>
+                            <a href="/billing/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Account Bonds</span>
+                            </a>
+                            <a href="/authenticator/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Enable Authenticator</span>
+                            </a>
+                            <a href="/support/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Support</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Welcome Section -->
+                <section class="welcome-section">
+                    <div class="welcome-inner">
+                        <h2 class="welcome-title">Welcome to New Renaissance!</h2>
+                        <p class="welcome-subtitle">Experience custom Renaissance-era gameplay</p>
+                        <p class="welcome-description">
+                            Relive the challenging leveling system and risk-it-all PvP of the biggest retro styled MMO. Play with thousands of other players in this piece of online gaming heritage where the community controls the development so the game is truly what you want it to be!
+                        </p>
+                    </div>
+                </section>
+
+                <!-- News Section -->
+                <section class="news-section">
+                    <div class="news-inner">
+                        <div class="news-header">
+                            <h2 class="news-title">News & Updates</h2>
+                        </div>
+
+                        <div class="news-content">
+                            <article class="news-item">
+                                <div class="news-item-image" style="background-image: url('/assets/images/uo-background.jpg');"></div>
+                                <div class="news-item-content">
+                                    <div class="news-item-header">
+                                        <h3 class="news-item-title">Server Patch Notes</h3>
+                                        <div class="news-item-meta">Game Updates | 22 July 2025</div>
+                                    </div>
+                                    <div class="news-item-description">
+                                        Magic item loot drops are now equally spread out. House customization costs reduced by 40%. New title hue deeds and clothing bless deeds added to character service vendor.
+                                        <a href="#" class="read-more">Read More...</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="news-item">
+                                <div class="news-item-image" style="background-image: url('/assets/images/uo-background.jpg');"></div>
+                                <div class="news-item-content">
+                                    <div class="news-item-header">
+                                        <h3 class="news-item-title">Monthly PvP Tournament</h3>
+                                        <div class="news-item-meta">Community | 18 January 2025</div>
+                                    </div>
+                                    <div class="news-item-description">
+                                        Join our monthly PvP tournament and compete against the best warriors in Britannia for glory and prizes.
+                                        <a href="#" class="read-more">Read More...</a>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="news-item">
+                                <div class="news-item-image" style="background-image: url('/assets/images/uo-background.jpg');"></div>
+                                <div class="news-item-content">
+                                    <div class="news-item-header">
+                                        <h3 class="news-item-title">New Player Welcome Event</h3>
+                                        <div class="news-item-meta">Community | 15 January 2025</div>
+                                    </div>
+                                    <div class="news-item-description">
+                                        New to New Renaissance? Join our weekly welcome events where veteran players help newcomers get started.
+                                        <a href="#" class="read-more">Read More...</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
     </div>
 </body>
 </html>
