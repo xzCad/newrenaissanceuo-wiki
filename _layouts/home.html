@@ -177,17 +177,21 @@
             bottom: -15px;
             background: 
                 url('/assets/images/top left.png') top left no-repeat,
-                url('/assets/images/top middle.png') top center repeat-x,
+                url('/assets/images/top middle.png') top repeat-x,
                 url('/assets/images/top right.png') top right no-repeat,
-                url('/assets/images/middle left.png') center left repeat-y,
-                url('/assets/images/middle right.png') center right repeat-y,
+                url('/assets/images/middle left.png') left repeat-y,
+                url('/assets/images/middle right.png') right repeat-y,
                 url('/assets/images/bottom left.png') bottom left no-repeat,
-                url('/assets/images/bottom middle.png') bottom center repeat-x,
+                url('/assets/images/bottom middle.png') bottom repeat-x,
                 url('/assets/images/bottom right.png') bottom right no-repeat;
             background-size: 
-                15px 15px, auto 15px, 15px 15px,
-                15px auto, 15px auto,
-                15px 15px, auto 15px, 15px 15px;
+                15px 15px, calc(100% - 30px) 15px, 15px 15px,
+                15px calc(100% - 30px), 15px calc(100% - 30px),
+                15px 15px, calc(100% - 30px) 15px, 15px 15px;
+            background-position:
+                top left, top 15px left 15px, top right,
+                left 15px top 15px, right 15px top 15px,
+                bottom left, bottom 15px left 15px, bottom right;
             pointer-events: none;
             z-index: -1;
         }
@@ -273,18 +277,23 @@
             right: -20px;
             bottom: -20px;
             background: 
-                url('/assets/images/top left.png') top left no-repeat,
-                url('/assets/images/top middle.png') top center repeat-x,
-                url('/assets/images/top right.png') top right no-repeat,
-                url('/assets/images/middle left.png') center left repeat-y,
-                url('/assets/images/middle right.png') center right repeat-y,
-                url('/assets/images/bottom left.png') bottom left no-repeat,
-                url('/assets/images/bottom middle.png') bottom center repeat-x,
-                url('/assets/images/bottom right.png') bottom right no-repeat;
+                url('/assets/images/top left.png') 0 0 no-repeat,
+                url('/assets/images/top right.png') 100% 0 no-repeat,
+                url('/assets/images/bottom left.png') 0 100% no-repeat,
+                url('/assets/images/bottom right.png') 100% 100% no-repeat,
+                url('/assets/images/top middle.png') 20px 0 repeat-x,
+                url('/assets/images/bottom middle.png') 20px 100% repeat-x,
+                url('/assets/images/middle left.png') 0 20px repeat-y,
+                url('/assets/images/middle right.png') 100% 20px repeat-y;
             background-size: 
-                20px 20px, auto 20px, 20px 20px,
-                20px auto, 20px auto,
-                20px 20px, auto 20px, 20px 20px;
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                calc(100% - 40px) 20px,
+                calc(100% - 40px) 20px,
+                20px calc(100% - 40px),
+                20px calc(100% - 40px);
             pointer-events: none;
             z-index: -1;
         }
@@ -335,18 +344,23 @@
             right: -20px;
             bottom: -20px;
             background: 
-                url('/assets/images/top left.png') top left no-repeat,
-                url('/assets/images/top middle.png') top center repeat-x,
-                url('/assets/images/top right.png') top right no-repeat,
-                url('/assets/images/middle left.png') center left repeat-y,
-                url('/assets/images/middle right.png') center right repeat-y,
-                url('/assets/images/bottom left.png') bottom left no-repeat,
-                url('/assets/images/bottom middle.png') bottom center repeat-x,
-                url('/assets/images/bottom right.png') bottom right no-repeat;
+                url('/assets/images/top left.png') 0 0 no-repeat,
+                url('/assets/images/top right.png') 100% 0 no-repeat,
+                url('/assets/images/bottom left.png') 0 100% no-repeat,
+                url('/assets/images/bottom right.png') 100% 100% no-repeat,
+                url('/assets/images/top middle.png') 20px 0 repeat-x,
+                url('/assets/images/bottom middle.png') 20px 100% repeat-x,
+                url('/assets/images/middle left.png') 0 20px repeat-y,
+                url('/assets/images/middle right.png') 100% 20px repeat-y;
             background-size: 
-                20px 20px, auto 20px, 20px 20px,
-                20px auto, 20px auto,
-                20px 20px, auto 20px, 20px 20px;
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                20px 20px,
+                calc(100% - 40px) 20px,
+                calc(100% - 40px) 20px,
+                20px calc(100% - 40px),
+                20px calc(100% - 40px);
             pointer-events: none;
             z-index: -1;
         }
