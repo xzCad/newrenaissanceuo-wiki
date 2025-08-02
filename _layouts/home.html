@@ -436,12 +436,19 @@
                 max-width: 600px;
             }
 
-            .sidebar {
-                width: 280px;
+            .top-row {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .main-content {
-                width: 580px;
+            .sidebar {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .button-column {
+                flex-direction: row;
+                justify-content: center;
             }
         }
 
@@ -455,16 +462,7 @@
             }
 
             .content-wrapper {
-                flex-direction: column;
                 max-width: 400px;
-            }
-
-            .sidebar {
-                width: 100%;
-            }
-
-            .main-content {
-                width: 100%;
             }
 
             .nav-section {
@@ -479,6 +477,10 @@
 
             .welcome-title {
                 font-size: 1.8rem;
+            }
+
+            .button-column {
+                flex-direction: column;
             }
         }
 
@@ -520,52 +522,59 @@
     <!-- Main Layout -->
     <div class="main-layout">
         <div class="content-wrapper">
-            <!-- Sidebar Navigation -->
-            <aside class="sidebar">
-                <div class="player-count">There are currently 127 people playing!</div>
-                
-                <!-- Game Section -->
-                <div class="nav-section">
-                    <div class="nav-section-inner">
-                        <div class="nav-section-header">Game</div>
-                        <div class="nav-links">
-                            <a href="https://github.com/UnknownUO/UO-NR-Launcher/archive/refs/heads/main.zip" class="nav-item">
-                                <div class="nav-item-icon"></div>
-                                <span>Download Client</span>
-                            </a>
-                            <a href="/bestiary/" class="nav-item">
-                                <div class="nav-item-icon"></div>
-                                <span>World Map</span>
-                            </a>
-                            <a href="/skills/" class="nav-item">
-                                <div class="nav-item-icon"></div>
-                                <span>Skills Guide</span>
-                            </a>
-                            <a href="/news/" class="nav-item">
-                                <div class="nav-item-icon"></div>
-                                <span>News</span>
-                            </a>
+            <!-- Top Row: Sidebar and Buttons -->
+            <div class="top-row">
+                <!-- Sidebar Navigation -->
+                <aside class="sidebar">
+                    <!-- Game Section -->
+                    <div class="nav-section">
+                        <div class="nav-section-inner">
+                            <div class="nav-section-header">Game</div>
+                            <div class="nav-links">
+                                <a href="https://github.com/UnknownUO/UO-NR-Launcher/archive/refs/heads/main.zip" class="nav-item">
+                                    <div class="nav-item-icon"></div>
+                                    <span>Download Client</span>
+                                </a>
+                                <a href="/bestiary/" class="nav-item">
+                                    <div class="nav-item-icon"></div>
+                                    <span>World Map</span>
+                                </a>
+                                <a href="/skills/" class="nav-item">
+                                    <div class="nav-item-icon"></div>
+                                    <span>Skills Guide</span>
+                                </a>
+                                <a href="/news/" class="nav-item">
+                                    <div class="nav-item-icon"></div>
+                                    <span>News</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Community Section -->
-                <div class="nav-section">
-                    <div class="nav-section-inner">
-                        <div class="nav-section-header">Community</div>
-                        <div class="nav-links">
-                            <a href="https://discord.gg/aynT7Cv82d" class="nav-item" target="_blank">
-                                <div class="nav-item-icon"></div>
-                                <span>Discord</span>
-                            </a>
-                            <a href="/wiki/" class="nav-item">
-                                <div class="nav-item-icon"></div>
-                                <span>Wiki</span>
-                            </a>
+                    <!-- Community Section -->
+                    <div class="nav-section">
+                        <div class="nav-section-inner">
+                            <div class="nav-section-header">Community</div>
+                            <div class="nav-links">
+                                <a href="https://discord.gg/aynT7Cv82d" class="nav-item" target="_blank">
+                                    <div class="nav-item-icon"></div>
+                                    <span>Discord</span>
+                                </a>
+                                <a href="/wiki/" class="nav-item">
+                                    <div class="nav-item-icon"></div>
+                                    <span>Wiki</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                </aside>
+
+                <!-- Button Column -->
+                <div class="button-column">
+                    <a href="https://github.com/UnknownUO/UO-NR-Launcher/archive/refs/heads/main.zip" class="btn-header btn-download">Download Now</a>
+                    <a href="https://discord.gg/aynT7Cv82d" class="btn-header btn-discord" target="_blank">Join Discord</a>
                 </div>
-            </aside>
+            </div>
 
             <!-- Main Content -->
             <main class="main-content">
