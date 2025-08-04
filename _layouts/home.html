@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Renaissance - A Renaissance Era Ultima Online Shard</title>
+    <title>New Renaissance - A Custom Renaissance Era Ultima Online Shard</title>
+    <link rel="icon" type="image/png" href="/assets/images/logo.png">
+    <link rel="shortcut icon" type="image/png" href="/assets/images/logo.png">
     <style>
         * {
             margin: 0;
@@ -69,18 +71,6 @@
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
         }
 
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-section img {
-            width: 40px;
-            height: auto;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.8));
-        }
-
         .logo-text h1 {
             font-size: 1.6rem;
             margin: 0;
@@ -137,15 +127,6 @@
             transform: translateY(-2px);
         }
 
-        /* Player Count */
-        .player-count {
-            text-align: center;
-            color: #B8860B;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
         /* Main Layout */
         .main-layout {
             margin-top: 100px;
@@ -197,46 +178,9 @@
 
         .nav-section {
             margin-bottom: 1rem;
-            position: relative;
-            overflow: visible;
             border: 2px solid #B8860B;
             border-radius: 8px;
-        }
-
-        /* Create 9-piece border using your UI elements */
-        .nav-section::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            background: 
-                url('/assets/images/top left.png') top left no-repeat,
-                url('/assets/images/top middle.png') top repeat-x,
-                url('/assets/images/top right.png') top right no-repeat,
-                url('/assets/images/middle left.png') left repeat-y,
-                url('/assets/images/middle right.png') right repeat-y,
-                url('/assets/images/bottom left.png') bottom left no-repeat,
-                url('/assets/images/bottom middle.png') bottom repeat-x,
-                url('/assets/images/bottom right.png') bottom right no-repeat;
-            background-size: 
-                15px 15px, calc(100% - 30px) 15px, 15px 15px,
-                15px calc(100% - 30px), 15px calc(100% - 30px),
-                15px 15px, calc(100% - 30px) 15px, 15px 15px;
-            background-position:
-                top left, top 15px left 15px, top right,
-                left 15px top 15px, right 15px top 15px,
-                bottom left, bottom 15px left 15px, bottom right;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .nav-section-inner {
-            background: 
-                url('/assets/images/middle.png') center center,
-                linear-gradient(135deg, rgba(13, 13, 13, 0.95), rgba(26, 26, 26, 0.95));
-            background-size: auto, cover;
+            background: linear-gradient(135deg, rgba(13, 13, 13, 0.95), rgba(26, 26, 26, 0.95));
             overflow: hidden;
         }
 
@@ -317,6 +261,18 @@
             margin-bottom: 1rem;
             color: #8B4513;
             font-weight: bold;
+        }
+
+        .welcome-logo {
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .welcome-logo img {
+            width: 80px;
+            height: auto;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
         }
 
         .welcome-subtitle {
@@ -483,6 +439,11 @@
                 text-align: center;
             }
 
+            .header-mob {
+                width: 50px;
+                height: 50px;
+            }
+
             .welcome-title {
                 font-size: 1.8rem;
             }
@@ -509,17 +470,17 @@
     <div class="pillar-left"></div>
     <div class="pillar-right"></div>
 
-<!-- Header -->
-<header class="header">
-    <div class="header-content">
-        <img src="/assets/images/mob60.png" alt="Left Header Monster" class="header-mob">
-        <div class="logo-text">
-            <h1>New Renaissance</h1>
-            <p>A Custom Renaissance Era Shard</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <img src="/assets/images/mob60.png" alt="Left Header Monster" class="header-mob">
+            <div class="logo-text">
+                <h1>New Renaissance</h1>
+                <p>A Custom Renaissance Era Shard</p>
+            </div>
+            <img src="/assets/images/mob61.png" alt="Right Header Monster" class="header-mob">
         </div>
-        <img src="/assets/images/mob61.png" alt="Right Header Monster" class="header-mob">
-    </div>
-</header>
+    </header>
 
     <!-- Main Layout -->
     <div class="main-layout">
@@ -530,43 +491,39 @@
                 <aside class="sidebar">
                     <!-- Game Section -->
                     <div class="nav-section">
-                        <div class="nav-section-inner">
-                            <div class="nav-section-header">Game</div>
-                            <div class="nav-links">
-                                <a href="https://github.com/UnknownUO/UO-NR-Launcher/archive/refs/heads/main.zip" class="nav-item">
-                                    <div class="nav-item-icon"></div>
-                                    <span>Download Client</span>
-                                </a>
-                                <a href="/bestiary/" class="nav-item">
-                                    <div class="nav-item-icon"></div>
-                                    <span>World Map</span>
-                                </a>
-                                <a href="/skills/" class="nav-item">
-                                    <div class="nav-item-icon"></div>
-                                    <span>Skills Guide</span>
-                                </a>
-                                <a href="/news/" class="nav-item">
-                                    <div class="nav-item-icon"></div>
-                                    <span>News</span>
-                                </a>
-                            </div>
+                        <div class="nav-section-header">Game</div>
+                        <div class="nav-links">
+                            <a href="https://github.com/UnknownUO/UO-NR-Launcher/archive/refs/heads/main.zip" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Download Client</span>
+                            </a>
+                            <a href="/bestiary/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>World Map</span>
+                            </a>
+                            <a href="/skills/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Skills Guide</span>
+                            </a>
+                            <a href="/news/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>News</span>
+                            </a>
                         </div>
                     </div>
 
                     <!-- Community Section -->
                     <div class="nav-section">
-                        <div class="nav-section-inner">
-                            <div class="nav-section-header">Community</div>
-                            <div class="nav-links">
-                                <a href="https://discord.gg/aynT7Cv82d" class="nav-item" target="_blank">
-                                    <div class="nav-item-icon"></div>
-                                    <span>Discord</span>
-                                </a>
-                                <a href="/wiki/" class="nav-item">
-                                    <div class="nav-item-icon"></div>
-                                    <span>Wiki</span>
-                                </a>
-                            </div>
+                        <div class="nav-section-header">Community</div>
+                        <div class="nav-links">
+                            <a href="https://discord.gg/aynT7Cv82d" class="nav-item" target="_blank">
+                                <div class="nav-item-icon"></div>
+                                <span>Discord</span>
+                            </a>
+                            <a href="/wiki/" class="nav-item">
+                                <div class="nav-item-icon"></div>
+                                <span>Wiki</span>
+                            </a>
                         </div>
                     </div>
                 </aside>
@@ -584,6 +541,9 @@
                 <section class="welcome-section">
                     <div class="welcome-inner">
                         <h2 class="welcome-title">Welcome to New Renaissance!</h2>
+                        <div class="welcome-logo">
+                            <img src="/assets/images/logo.png" alt="New Renaissance Logo">
+                        </div>
                         <p class="welcome-subtitle">Experience custom Renaissance-era gameplay</p>
                         <p class="welcome-description">
                         </p>
